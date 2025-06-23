@@ -1,4 +1,4 @@
-import { PlayCircle, TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
+import { TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -47,19 +47,8 @@ export default function Cta() {
         </h2>
 
         <div className="mt-16 max-w-5xl mx-auto">
-            {/* Video Player Placeholder */}
-            <div className="relative bg-card/50 border border-border rounded-xl p-8 flex items-center justify-center min-h-[300px] overflow-hidden backdrop-blur-sm">
-                <span className="absolute text-8xl md:text-[10rem] font-black text-foreground/5 select-none z-0">PROCESS</span>
-                <div className="relative z-10 text-center">
-                    <p className="font-semibold tracking-widest text-foreground">EVALUATION</p>
-                    <button className="mt-4 text-primary hover:text-primary/80 transition-colors" aria-label="Play video">
-                        <PlayCircle className="h-16 w-16 md:h-20 md:w-20" />
-                    </button>
-                </div>
-            </div>
-
             {/* Mobile View */}
-            <div className="mt-12 flex flex-col items-center gap-8 md:hidden">
+            <div className="flex flex-col items-center gap-8 md:hidden">
                 <DownArrowCircle />
                 <StepCard step="STEP #1" title="Trading Challenge" />
                 <DownArrowCircle />
@@ -69,7 +58,7 @@ export default function Cta() {
             </div>
 
             {/* Desktop View */}
-            <div className="hidden md:block mt-16 relative">
+            <div className="hidden md:block relative">
                  {/* Connectors */}
                 <div className="absolute top-0 left-1/4 -translate-x-5"> <DownArrowCircle /> </div>
                 <div className="absolute top-0 right-1/4 -translate-x-5"> <DownArrowCircle /> </div>
