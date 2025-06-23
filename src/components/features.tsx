@@ -40,24 +40,24 @@ const ServiceCard = ({ serviceNumber, title, description, image, imageHint }: { 
 const services = [
   {
     serviceNumber: "SERVICE #1",
-    title: "Currency Pair and Analysis",
-    description: "Holds in these matters this principles...",
+    title: "📈 Stable Monthly Profit Sharing",
+    description: "Our model aims for consistent monthly returns, such as a stable 5.4% profit share.",
     image: "https://placehold.co/600x400.png",
-    imageHint: "currency money",
+    imageHint: "profit chart graph",
   },
   {
     serviceNumber: "SERVICE #2",
-    title: "Proprietary Trading Accounts",
-    description: "The great explorer of the truth master...",
+    title: "🔁 Reinvestment + Withdrawal Flexibility",
+    description: "Customize your financial strategy with flexible reinvestment and withdrawal plans.",
     image: "https://placehold.co/600x400.png",
-    imageHint: "trading analysis chart",
+    imageHint: "money transfer cycle",
   },
   {
     serviceNumber: "SERVICE #3",
-    title: "Trading Platforms and Tools",
-    description: "Rationally encounter consequences...",
+    title: "🧠 AI-based Risk Management",
+    description: "Leverage our AI's dynamic position control to intelligently manage and mitigate trading risks.",
     image: "https://placehold.co/600x400.png",
-    imageHint: "stock market screen",
+    imageHint: "ai circuit brain",
   },
 ];
 
@@ -115,10 +115,10 @@ export default function Features() {
 
             <ServiceCard
                 serviceNumber="SERVICE #4"
-                title="Trade Monitoring and Support"
-                description="Ever undertakes laborious physical..."
+                title="🪙 MNT Token Ecosystem Integration"
+                description="Become part of the growing MrMint ecosystem with integrated MNT token features."
                 image="https://placehold.co/600x400.png"
-                imageHint="woman headset support"
+                imageHint="crypto token network"
             />
 
             <GuidanceCard />
