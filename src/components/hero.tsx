@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { ArrowUp, ArrowDown, TrendingUp } from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const RotatingCircle = () => (
     <div className="relative h-48 w-48">
@@ -25,33 +29,93 @@ const RotatingCircle = () => (
     </div>
   );
 
+const heroSlides = [
+  {
+    bgImage: "https://placehold.co/1920x1080.png",
+    bgAiHint: "abstract financial graph",
+    fgImage: "https://placehold.co/600x600.png",
+    fgAiHint: "gold coins stack",
+    title: "Excellence in <br /> every trade, <br /> prosperity in <br /> every move.",
+  },
+  {
+    bgImage: "https://placehold.co/1920x1080.png",
+    bgAiHint: "digital currency",
+    fgImage: "https://placehold.co/600x600.png",
+    fgAiHint: "stock market chart",
+    title: "Unlock Your <br /> Trading Potential <br /> with Cutting-Edge <br /> Technology.",
+  },
+  {
+    bgImage: "https://placehold.co/1920x1080.png",
+    bgAiHint: "global business network",
+    fgImage: "https://placehold.co/600x600.png",
+    fgAiHint: "trader desk",
+    title: "Join a Global <br /> Community of <br /> Successful <br /> Traders.",
+  },
+];
+
 export default function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? heroSlides.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === heroSlides.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const currentSlide = heroSlides[currentIndex];
+
   return (
-    <section id="home" className="w-full overflow-hidden relative text-foreground" style={{ background: 'linear-gradient(180deg, hsl(var(--background)) 0%, hsl(160 20% 6%) 100%)'}}>
+    <section id="home" className="w-full overflow-hidden relative text-foreground min-h-[calc(100vh-128px)] flex items-center">
+        {/* Background Images with cross-fade */}
+        <div className="absolute inset-0">
+            {heroSlides.map((slide, index) => (
+                 <Image
+                    key={index}
+                    src={slide.bgImage}
+                    alt="Background"
+                    fill
+                    className={cn(
+                        "object-cover transition-opacity duration-1000",
+                        index === currentIndex ? "opacity-20" : "opacity-0"
+                    )}
+                    data-ai-hint={slide.bgAiHint}
+                    priority={index === 0}
+                />
+            ))}
+        </div>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-background" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9ImhzbCgwIDAlIDEwMCUgMC4wNSkiPjxwYXRoIGQ9Ik0wIC41SDMyTTYuNSAwVjMyTTIzIDBWMyINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGQ9Ik0xMi41IDBWMzJNMTkuNSA0VjMyIi8+PC9zdmc+')] opacity-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,hsla(155,65%,55%,0.1),transparent)]"></div>
+        
         <div className="container mx-auto px-4 md:px-6 relative">
-            <div className="grid md:grid-cols-2 min-h-[calc(100vh-128px)]">
+            <div className="grid md:grid-cols-2">
                 <div className="flex flex-col justify-center space-y-6 py-12">
-                    <div className="flex items-center gap-2 text-primary font-semibold tracking-wider">
+                    <div className="flex items-center gap-2 text-primary font-semibold tracking-wider animate-in fade-in slide-in-from-bottom-4 duration-1000">
                         <TrendingUp className="h-5 w-5" />
                         <span>PROFIT WITH PRECISION</span>
                     </div>
-                    <h1 className="text-5xl font-extrabold tracking-tighter sm:text-6xl md:text-7xl !leading-tight">
-                        Excellence in <br />
-                        every trade, <br />
-                        prosperity in <br />
-                        every move.
-                    </h1>
+                    <h1
+                        key={currentIndex}
+                        className="text-5xl font-extrabold tracking-tighter sm:text-6xl md:text-7xl !leading-tight animate-in fade-in slide-in-from-bottom-8 duration-1000"
+                        dangerouslySetInnerHTML={{ __html: currentSlide.title }}
+                    />
                 </div>
                 <div className="relative hidden md:flex items-center justify-center">
                     <Image
-                        src="https://placehold.co/600x600.png"
-                        alt="Stacked gold coins"
+                        key={currentIndex}
+                        src={currentSlide.fgImage}
+                        alt="Feature image"
                         width={600}
                         height={600}
-                        className="opacity-80"
-                        data-ai-hint="gold coins stack"
+                        className="opacity-80 animate-in fade-in zoom-in-75 duration-1000"
+                        data-ai-hint={currentSlide.fgAiHint}
                     />
                 </div>
             </div>
@@ -61,12 +125,12 @@ export default function Hero() {
                 <RotatingCircle />
             </div>
             <div className="flex flex-col items-center gap-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-                <button className="flex items-center gap-2 hover:text-primary">
+                <button onClick={handlePrev} className="flex items-center gap-2 hover:text-primary">
                     <ArrowUp className="h-4 w-4" />
                     <span>Prev</span>
                 </button>
                 <div className="h-16 w-px bg-border"></div>
-                <button className="flex items-center gap-2 hover:text-primary">
+                <button onClick={handleNext} className="flex items-center gap-2 hover:text-primary">
                     <span>Next</span>
                     <ArrowDown className="h-4 w-4" />
                 </button>
