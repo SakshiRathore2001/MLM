@@ -1,7 +1,9 @@
 import { Card } from "@/components/ui/card";
-import { TrendingUp } from "lucide-react";
+import { ArrowRight, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
@@ -42,22 +44,38 @@ export default function Features() {
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-3">
           {services.map((service) => (
-            <Card key={service.title} className="text-left overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+            <Card key={service.title} className="group text-left overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl">
               <div className="p-6 flex-grow">
                 <p className="text-xs uppercase font-semibold tracking-wider text-muted-foreground">{service.serviceNumber}</p>
                 <h3 className="text-xl font-bold mt-2">{service.title}</h3>
                 <Separator className="my-4" />
                 <p className="text-muted-foreground text-sm">{service.description}</p>
               </div>
-              <div className="mt-auto">
+              <div className="mt-auto relative">
                 <Image
                     src={service.image}
                     alt={service.title}
                     width={600}
                     height={300}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
                     data-ai-hint={service.aiHint}
                 />
+                <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/60" />
+                <div className="absolute inset-0 p-6">
+                    <Button
+                        variant="ghost"
+                        className={cn(
+                            "absolute h-auto rounded-full font-semibold transition-all duration-300 ease-in-out shadow-md flex items-center",
+                            // Default state: small, white, bottom-left
+                            "bg-white/90 text-black hover:bg-white px-4 py-2 text-xs bottom-6 left-6",
+                            // Hovered card state: larger, orange, center
+                            "group-hover:bg-orange-500 group-hover:text-white group-hover:hover:bg-orange-600 group-hover:px-6 group-hover:py-3 group-hover:text-sm group-hover:shadow-lg group-hover:bottom-1/2 group-hover:left-1/2 group-hover:-translate-x-1/2 group-hover:translate-y-1/2"
+                        )}
+                    >
+                        <ArrowRight className="h-4 w-4 mr-2 shrink-0" />
+                        <span>Explore</span>
+                    </Button>
+                </div>
               </div>
             </Card>
           ))}
