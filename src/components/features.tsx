@@ -76,7 +76,7 @@ const GuidanceCard = () => (
             </div>
             <h3 className="text-2xl font-bold leading-tight">Fxvibe Expert Guidance for Financial Rise!...</h3>
             <p className="text-sm">Customized Forex Strategy Consultation.</p>
-            <Button className="mt-4 bg-white text-black hover:bg-white/90 rounded-full font-semibold">
+            <Button className="mt-4 bg-white text-black hover:bg-primary hover:text-primary-foreground rounded-full font-semibold">
                 <ArrowRight className="mr-2 h-4 w-4" /> START NOW
             </Button>
         </div>
