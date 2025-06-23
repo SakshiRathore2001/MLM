@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -33,23 +32,23 @@ const RotatingCircle = () => (
 const heroSlides = [
   {
     bgImage: "https://placehold.co/1920x1080.png",
-    bgAiHint: "abstract financial graph",
+    bgAiHint: "crypto graph",
     fgImage: "https://placehold.co/600x600.png",
-    fgAiHint: "gold coins stack",
+    fgAiHint: "bitcoin ethereum",
     title: "Excellence in <br /> every trade, <br /> prosperity in <br /> every move.",
   },
   {
     bgImage: "https://placehold.co/1920x1080.png",
-    bgAiHint: "digital currency",
+    bgAiHint: "blockchain network",
     fgImage: "https://placehold.co/600x600.png",
-    fgAiHint: "stock market chart",
+    fgAiHint: "crypto coins",
     title: "Unlock Your <br /> Trading Potential <br /> with Cutting-Edge <br /> Technology.",
   },
   {
     bgImage: "https://placehold.co/1920x1080.png",
-    bgAiHint: "global business network",
+    bgAiHint: "financial charts",
     fgImage: "https://placehold.co/600x600.png",
-    fgAiHint: "trader desk",
+    fgAiHint: "trading platform",
     title: "Join a Global <br /> Community of <br /> Successful <br /> Traders.",
   },
 ];

@@ -14,7 +14,7 @@ export default function About() {
               width={600}
               height={400}
               className="rounded-lg shadow-xl"
-              data-ai-hint="team collaboration"
+              data-ai-hint="crypto trading"
             />
           </div>
           <div className="flex flex-col justify-center space-y-6">
