@@ -1,12 +1,13 @@
-import { TrendingUp, ChevronDown, ChevronUp } from "lucide-react";
+import { TrendingUp, ChevronDown, ChevronUp, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-const StepCard = ({ step, title }: { step: string; title: string; }) => (
+const StepCard = ({ step, title, description }: { step: string; title: string; description: string; }) => (
     <div className="w-full text-center bg-card backdrop-blur-sm border-border rounded-lg p-8 shadow-lg h-full flex flex-col justify-center">
         <p className="text-primary font-bold tracking-wider">{step}</p>
         <h3 className="text-2xl font-bold mt-2 text-foreground">{title}</h3>
+        <p className="mt-4 text-muted-foreground text-sm">{description}</p>
     </div>
 );
 
@@ -15,6 +16,30 @@ const DownArrowCircle = () => (
         <ChevronDown className="w-6 h-6 text-muted-foreground" />
     </div>
 );
+
+const RightArrowCircle = () => (
+    <div className="w-10 h-10 rounded-full border-2 border-border flex items-center justify-center bg-background">
+        <ChevronRight className="w-6 h-6 text-muted-foreground" />
+    </div>
+);
+
+const steps = [
+    {
+        step: "STEP #1",
+        title: "Trading Challenge",
+        description: "Pass our evaluation process to prove you have what it takes to be a funded trader."
+    },
+    {
+        step: "STEP #2",
+        title: "Verification",
+        description: "Once you pass the challenge, we'll verify your results and get you set up with a funded account."
+    },
+    {
+        step: "STEP #3",
+        title: "Get Paid",
+        description: "Trade our capital and keep up to 90% of the profits you generate. Get paid out regularly."
+    }
+];
 
 export default function Cta() {
   return (
@@ -40,7 +65,7 @@ export default function Cta() {
       <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
         <div className="flex justify-center items-center gap-2 text-primary font-semibold tracking-wider">
             <TrendingUp className="h-5 w-5" />
-            <span>HOW IT'S WORK</span>
+            <span>HOW IT WORKS</span>
         </div>
         <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl mt-4">
             Deep Dive into Evaluation
@@ -49,35 +74,26 @@ export default function Cta() {
         <div className="mt-16 max-w-5xl mx-auto">
             {/* Mobile View */}
             <div className="flex flex-col items-center gap-8 md:hidden">
+                <StepCard {...steps[0]} />
                 <DownArrowCircle />
-                <StepCard step="STEP #1" title="Trading Challenge" />
+                <StepCard {...steps[1]} />
                 <DownArrowCircle />
-                <StepCard step="STEP #2" title="Verification" />
-                <DownArrowCircle />
-                <StepCard step="STEP #3" title="Get Paid" />
+                <StepCard {...steps[2]} />
             </div>
 
             {/* Desktop View */}
-            <div className="hidden md:block relative">
-                 {/* Connectors */}
-                <div className="absolute top-0 left-1/4 -translate-x-5"> <DownArrowCircle /> </div>
-                <div className="absolute top-0 right-1/4 -translate-x-5"> <DownArrowCircle /> </div>
-                <div className="absolute top-[28px] left-1/4 right-1/4 h-px bg-border"></div>
-                <div className="absolute top-[28px] left-1/2 w-px h-16 bg-border"></div>
-                <div className="absolute top-[88px] left-1/2 -translate-x-5"> <DownArrowCircle /> </div>
-
-                <div className="grid grid-cols-2 gap-x-8 pt-20">
-                    <StepCard step="STEP #1" title="Trading Challenge" />
-                    <StepCard step="STEP #3" title="Get Paid" />
-                </div>
-                <div className="flex justify-center mt-24">
-                    <div className="w-full max-w-md">
-                        <StepCard step="STEP #2" title="Verification" />
-                    </div>
-                </div>
+            <div className="hidden md:grid grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-8">
+                 <StepCard {...steps[0]} />
+                 <div className="flex justify-center items-center h-full pt-16">
+                    <RightArrowCircle />
+                 </div>
+                 <StepCard {...steps[1]} />
+                 <div className="flex justify-center items-center h-full pt-16">
+                    <RightArrowCircle />
+                 </div>
+                 <StepCard {...steps[2]} />
             </div>
         </div>
-
       </div>
       <div className="fixed bottom-8 right-8 z-50">
         <Link href="#home" className="hidden md:inline-flex" aria-label="Scroll to top">
