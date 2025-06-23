@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const ServiceCard = ({ serviceNumber, title, description, image, imageHint }: { serviceNumber: string; title: string; description: string; image: string; imageHint: string; }) => (
     <Card className="group flex flex-col bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
@@ -19,8 +20,15 @@ const ServiceCard = ({ serviceNumber, title, description, image, imageHint }: { 
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={imageHint}
                 />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
              </div>
-             <Button className="absolute bottom-4 left-4 bg-white/95 text-black rounded-full hover:bg-primary hover:text-primary-foreground transition-colors duration-200 shadow-md backdrop-blur-sm">
+             <Button className={cn(
+                "absolute bottom-4 bg-white/95 text-black rounded-full shadow-md backdrop-blur-sm",
+                "transition-all duration-300 ease-in-out",
+                "left-4",
+                "group-hover:left-1/2 group-hover:-translate-x-1/2 group-hover:bottom-1/2 group-hover:translate-y-1/2 group-hover:w-32",
+                "hover:bg-primary hover:text-primary-foreground"
+             )}>
                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 h-4 w-4"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>
                  Explore
              </Button>
