@@ -50,6 +50,7 @@ export default function Features() {
                 <h3 className="text-xl font-bold mt-2">{service.title}</h3>
                 <Separator className="my-4" />
                 <p className="text-muted-foreground text-sm">{service.description}</p>
+
               </div>
               <div className="mt-auto relative">
                 <Image
@@ -68,8 +69,11 @@ export default function Features() {
                             "absolute h-auto rounded-full font-semibold transition-all duration-300 ease-in-out shadow-md flex items-center",
                             // Default state: small, white, bottom-left
                             "bg-white/90 text-black hover:bg-white px-4 py-2 text-xs bottom-6 left-6",
-                            // Hovered card state: larger, orange, center
-                            "group-hover:bg-orange-500 group-hover:text-white group-hover:hover:bg-orange-600 group-hover:px-6 group-hover:py-3 group-hover:text-sm group-hover:shadow-lg group-hover:bottom-1/2 group-hover:left-1/2 group-hover:-translate-x-1/2 group-hover:translate-y-1/2"
+                            // On card hover: move to center, get bigger, but keep original colors
+                            "group-hover:bottom-1/2 group-hover:left-1/2 group-hover:-translate-x-1/2 group-hover:translate-y-1/2",
+                            "group-hover:px-6 group-hover:py-3 group-hover:text-sm group-hover:shadow-lg",
+                            // On button hover while card is hovered: turn orange
+                            "group-hover:hover:bg-orange-500 group-hover:hover:text-white"
                         )}
                     >
                         <ArrowRight className="h-4 w-4 mr-2 shrink-0" />
