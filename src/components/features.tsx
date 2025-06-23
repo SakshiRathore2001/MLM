@@ -1,49 +1,56 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+
+const ServiceCard = ({ serviceNumber, title, description, image, imageHint }: { serviceNumber: string; title: string; description: string; image: string; imageHint: string; }) => (
+    <Card className="group flex flex-col bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <div className="p-6">
+            <p className="text-xs font-semibold text-gray-500 tracking-widest">{serviceNumber}</p>
+            <h2 className="mt-2 text-xl font-bold leading-snug text-gray-900">{title}</h2>
+            <hr className="my-4" />
+            <p className="text-sm text-gray-700 h-12">{description}</p>
+        </div>
+        <div className="relative mt-auto">
+             <div className="aspect-[16/10] relative overflow-hidden">
+                <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    data-ai-hint={imageHint}
+                />
+             </div>
+             <Button className="absolute bottom-4 left-4 bg-white/95 text-black rounded-full hover:bg-primary hover:text-primary-foreground transition-colors duration-200 shadow-md backdrop-blur-sm">
+                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 h-4 w-4"><path d="M8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645L12.8536 7.14645C13.0488 7.34171 13.0488 7.65829 12.8536 7.85355L8.85355 11.8536C8.65829 12.0488 8.34171 12.0488 8.14645 11.8536C7.95118 11.6583 7.95118 11.3417 8.14645 11.1464L11.2929 8H2.5C2.22386 8 2 7.77614 2 7.5C2 7.22386 2.22386 7 2.5 7H11.2929L8.14645 3.85355C7.95118 3.65829 7.95118 3.34171 8.14645 3.14645Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>
+                 Explore
+             </Button>
+        </div>
+    </Card>
+);
 
 const services = [
   {
-    icon: "https://placehold.co/80x80.png",
-    iconHint: "trading analysis",
-    title: "AI Trading",
-    description: "Leverage our advanced AI to make informed, profitable trades.",
+    serviceNumber: "SERVICE #1",
+    title: "Currency Pair and Analysis",
+    description: "Holds in these matters this principles...",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "currency money",
   },
   {
-    icon: "https://placehold.co/80x80.png",
-    iconHint: "financial security",
-    title: "Proprietary Trading",
-    description: "Gain access to our capital and trade on behalf of the firm.",
+    serviceNumber: "SERVICE #2",
+    title: "Proprietary Trading Accounts",
+    description: "The great explorer of the truth master...",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "trading analysis chart",
   },
   {
-    icon: "https://placehold.co/80x80.png",
-    iconHint: "community support",
-    title: "Community & Support",
-    description: "Join a network of traders and get support from our experts.",
+    serviceNumber: "SERVICE #3",
+    title: "Trading Platforms and Tools",
+    description: "Rationally encounter consequences...",
+    image: "https://placehold.co/600x400.png",
+    imageHint: "stock market screen",
   },
 ];
-
-const ServiceCardWithHover = ({ icon, iconHint, title, description }: { icon: string; iconHint: string; title: string; description: string }) => (
-    <Card className="group relative overflow-hidden text-center bg-card p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 h-[350px] flex flex-col justify-end items-center">
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-        <div className="relative z-10 transition-transform duration-500 ease-in-out group-hover:-translate-y-12">
-            <Image
-                src={icon}
-                alt={title}
-                width={80}
-                height={80}
-                className="mx-auto mb-4 transition-transform duration-300 group-hover:scale-110"
-                data-ai-hint={iconHint}
-            />
-            <h3 className="text-xl font-bold text-white">{title}</h3>
-            <p className="text-muted-foreground mt-2 text-sm">{description}</p>
-        </div>
-        <Button variant="default" className="absolute z-20 bottom-1/2 translate-y-[calc(50%+2rem)] left-1/2 -translate-x-1/2 w-40 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out scale-90 group-hover:scale-100 bg-white text-black hover:bg-primary hover:text-primary-foreground">
-            Explore <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
-    </Card>
-);
 
 export default function Features() {
   return (
@@ -59,37 +66,8 @@ export default function Features() {
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <ServiceCardWithHover key={service.title} {...service} />
+            <ServiceCard key={service.title} {...service} />
           ))}
-        </div>
-        <div className="mt-8 grid gap-8 md:grid-cols-3 items-center">
-            <div className="md:col-span-1">
-                <Image 
-                    src="https://placehold.co/600x400.png" 
-                    alt="Illustration" 
-                    width={600} 
-                    height={400} 
-                    className="rounded-2xl"
-                    data-ai-hint="financial planning illustration"
-                />
-            </div>
-            <div className="md:col-span-1">
-                <ServiceCardWithHover 
-                    icon="https://placehold.co/80x80.png"
-                    iconHint="education learning"
-                    title="Education & Training"
-                    description="Access our library of educational resources and training materials."
-                />
-            </div>
-            <div className="md:col-span-1">
-                 <Card className="bg-primary text-primary-foreground p-8 rounded-2xl shadow-lg h-[350px] flex flex-col justify-center items-center text-center">
-                    <h3 className="text-2xl font-bold">Ready to Start?</h3>
-                    <p className="mt-2">Join FXVibe today and take your trading to the next level.</p>
-                    <Button variant="secondary" className="mt-6 bg-white text-primary hover:bg-white/90">
-                        Get Started
-                    </Button>
-                </Card>
-            </div>
         </div>
       </div>
     </section>
