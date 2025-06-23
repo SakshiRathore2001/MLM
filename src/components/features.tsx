@@ -1,51 +1,64 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Paintbrush, Settings, Smartphone, Code } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { TrendingUp } from "lucide-react";
+import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
 
-const features = [
+const services = [
   {
-    icon: <Paintbrush className="h-8 w-8 text-primary" />,
-    title: "Modern Design",
-    description: "A sleek and contemporary design that will make your project stand out.",
+    serviceNumber: "SERVICE #1",
+    title: "Currency Pair and Analysis",
+    description: "Holds in these matters this principles...",
+    image: "https://placehold.co/600x400.png",
+    aiHint: "currency analysis"
   },
   {
-    icon: <Settings className="h-8 w-8 text-primary" />,
-    title: "Easy to Customize",
-    description: "Built with Tailwind CSS, making it simple to modify and adapt to your brand.",
+    serviceNumber: "SERVICE #2",
+    title: "Proprietary Trading Accounts",
+    description: "The great explorer of the truth master...",
+    image: "https://placehold.co/600x400.png",
+    aiHint: "trading account"
   },
   {
-    icon: <Smartphone className="h-8 w-8 text-primary" />,
-    title: "Fully Responsive",
-    description: "Looks great on any device, from mobile phones to desktop computers.",
-  },
-  {
-    icon: <Code className="h-8 w-8 text-primary" />,
-    title: "Clean Code",
-    description: "Well-structured and commented code that is easy to understand and maintain.",
-  },
+    serviceNumber: "SERVICE #3",
+    title: "Trading Platforms and Tools",
+    description: "Rationally encounter consequences...",
+    image: "https://placehold.co/600x400.png",
+    aiHint: "trading platform"
+  }
 ];
 
 export default function Features() {
   return (
-    <section id="services" className="w-full py-20 md:py-24 bg-card">
+    <section id="services" className="w-full py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl">
-            Everything You Need
+        <div className="text-center max-w-3xl mx-auto">
+          <div className="flex justify-center items-center gap-2 text-primary font-semibold tracking-wider">
+              <TrendingUp className="h-5 w-5" />
+              <span>WHAT WE OFFER</span>
+          </div>
+          <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl mt-4">
+            Provide all you need for trading success
           </h2>
-          <p className="mt-4 text-muted-foreground md:text-lg">
-            FXVibe comes with all the features you need to launch your next project.
-          </p>
         </div>
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature) => (
-            <Card key={feature.title} className="text-center transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-              <CardHeader className="items-center">
-                {feature.icon}
-                <CardTitle className="mt-4">{feature.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </CardContent>
+        <div className="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-3">
+          {services.map((service) => (
+            <Card key={service.title} className="text-left overflow-hidden flex flex-col transition-transform duration-300 hover:scale-105 hover:shadow-lg">
+              <div className="p-6 flex-grow">
+                <p className="text-xs uppercase font-semibold tracking-wider text-muted-foreground">{service.serviceNumber}</p>
+                <h3 className="text-xl font-bold mt-2">{service.title}</h3>
+                <Separator className="my-4" />
+                <p className="text-muted-foreground text-sm">{service.description}</p>
+              </div>
+              <div className="mt-auto">
+                <Image
+                    src={service.image}
+                    alt={service.title}
+                    width={600}
+                    height={300}
+                    className="w-full h-auto object-cover"
+                    data-ai-hint={service.aiHint}
+                />
+              </div>
             </Card>
           ))}
         </div>
