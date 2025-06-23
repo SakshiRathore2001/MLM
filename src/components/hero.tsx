@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import { ArrowUp, ArrowDown, TrendingUp } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 const RotatingCircle = () => (
@@ -69,6 +69,15 @@ export default function Hero() {
     );
   };
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleNext();
+    }, 2000); // Change slide every 2 seconds
+
+    // Cleanup the interval on component unmount or when currentIndex changes
+    return () => clearInterval(timer);
+  }, [currentIndex]); // Rerun effect when currentIndex changes, which resets the timer
+
   const currentSlide = heroSlides[currentIndex];
 
   return (
@@ -121,7 +130,7 @@ export default function Hero() {
                 </div>
             </div>
         </div>
-        <div className="absolute right-0 top-0 h-full hidden md:flex flex-col justify-center items-center gap-12 bg-card/30 p-6 backdrop-blur-sm border-l border-border">
+        <div className="absolute right-0 top-0 h-full hidden md:flex flex-col justify-center items-center gap-12 bg-card/50 p-6 backdrop-blur-sm border-l border-border">
             <div className="mt-24">
                 <RotatingCircle />
             </div>
