@@ -1,56 +1,49 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+
+const allocations = [
+  { usage: "Referral", allocation: "2%", remarks: "—" },
+  { usage: "MNT Acquisition", allocation: "10%", remarks: "Upto ₹100 Cr" },
+  { usage: "AI Trading Capital", allocation: "50%", remarks: "Used by the AI bot" },
+];
 
 export default function About() {
   return (
-    <section id="about" className="w-full py-20 md:py-24">
+    <section id="allocation" className="w-full py-20 md:py-24 bg-card">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="flex items-center justify-center">
-            <Image
-              src="https://placehold.co/600x400.png"
-              alt="About Us"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-xl"
-              data-ai-hint="crypto trading"
-            />
-          </div>
-          <div className="flex flex-col justify-center space-y-6">
-            <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-card px-3 py-1 text-sm text-primary">About Us</div>
-              <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl">
-                We're on a Mission to Innovate
-              </h2>
-              <p className="max-w-xl text-muted-foreground md:text-lg">
-                Our team is dedicated to creating high-quality, developer-friendly templates that accelerate your time to market. We believe in the power of good design and clean code.
-              </p>
-            </div>
-            <ul className="grid gap-4">
-              <li className="flex items-start gap-3">
-                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
-                <p className="text-muted-foreground">
-                  <strong>Developer Focused:</strong> Built for developers, by developers.
-                </p>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
-                <p className="text-muted-foreground">
-                  <strong>Future Proof:</strong> Utilizing the latest technologies to ensure longevity.
-                </p>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle className="mt-1 h-5 w-5 flex-shrink-0 text-primary" />
-                <p className="text-muted-foreground">
-                  <strong>Community Driven:</strong> We value feedback and contributions from our users.
-                </p>
-              </li>
-            </ul>
-            <div className="pt-4">
-              <Button size="lg" variant="outline">Learn More</Button>
-            </div>
-          </div>
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl">
+            Fund Allocation Breakdown
+          </h2>
+          <p className="mt-4 text-muted-foreground md:text-lg">
+            We believe in transparency. Here's how the funds are allocated to ensure the system's efficiency and growth.
+          </p>
+        </div>
+        <div className="mt-12 max-w-3xl mx-auto">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[200px]">Usage</TableHead>
+                <TableHead>Allocation</TableHead>
+                <TableHead>Remarks</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {allocations.map((item) => (
+                <TableRow key={item.usage}>
+                  <TableCell className="font-medium">{item.usage}</TableCell>
+                  <TableCell>{item.allocation}</TableCell>
+                  <TableCell>{item.remarks}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
         </div>
       </div>
     </section>

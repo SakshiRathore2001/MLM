@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUp, ArrowDown, TrendingUp } from "lucide-react";
-import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { TrendingUp } from "lucide-react";
 
 const RotatingCircle = () => (
     <div className="relative h-48 w-48">
@@ -21,7 +19,7 @@ const RotatingCircle = () => (
                 className="text-sm font-bold uppercase tracking-widest"
                 fill="hsl(var(--primary-foreground))"
               >
-                Discover • Prosper • Trade • Discover • Prosper • Trade •
+                AI • TRADING • AGENT • AI • TRADING • AGENT •
               </textPath>
             </text>
         </svg>
@@ -29,78 +27,24 @@ const RotatingCircle = () => (
     </div>
   );
 
-const heroSlides = [
-  {
-    bgImage: "https://placehold.co/1920x1080.png",
-    bgAiHint: "crypto graph",
-    fgImage: "https://placehold.co/600x600.png",
-    fgAiHint: "bitcoin ethereum",
-    title: "Excellence in <br /> every trade, <br /> prosperity in <br /> every move.",
-  },
-  {
-    bgImage: "https://placehold.co/1920x1080.png",
-    bgAiHint: "blockchain network",
-    fgImage: "https://placehold.co/600x600.png",
-    fgAiHint: "crypto coins",
-    title: "Unlock Your <br /> Trading Potential <br /> with Cutting-Edge <br /> Technology.",
-  },
-  {
-    bgImage: "https://placehold.co/1920x1080.png",
-    bgAiHint: "financial charts",
-    fgImage: "https://placehold.co/600x600.png",
-    fgAiHint: "trading platform",
-    title: "Join a Global <br /> Community of <br /> Successful <br /> Traders.",
-  },
-];
-
 export default function Hero() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? heroSlides.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === heroSlides.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      handleNext();
-    }, 2000); // Change slide every 2 seconds
-
-    // Cleanup the interval on component unmount or when currentIndex changes
-    return () => clearInterval(timer);
-  }, [currentIndex]); // Rerun effect when currentIndex changes, which resets the timer
-
-  const currentSlide = heroSlides[currentIndex];
 
   return (
     <section id="home" className="w-full overflow-hidden relative text-foreground min-h-[calc(100vh-128px)] flex items-center">
-        {/* Background Images with cross-fade */}
+        {/* Background Image */}
         <div className="absolute inset-0">
-            {heroSlides.map((slide, index) => (
-                 <Image
-                    key={index}
-                    src={slide.bgImage}
-                    alt="Background"
-                    fill
-                    className={cn(
-                        "object-cover transition-opacity duration-1000",
-                        index === currentIndex ? "opacity-20" : "opacity-0"
-                    )}
-                    data-ai-hint={slide.bgAiHint}
-                    priority={index === 0}
-                />
-            ))}
+            <Image
+                src="https://placehold.co/1920x1080.png"
+                alt="Background"
+                fill
+                className="object-cover opacity-20"
+                data-ai-hint="ai trading bot"
+                priority
+            />
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-background" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9ImhzbCgwIDAlIDEwMCUgMC4wNSkiPjxwYXRoIGQ9Ik0wIC41SDMyTTYuNSAwVjMyTTIzIDBWMyINCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGQ9Ik0xMi41IDBWMzJNMTkuNSA0VjMyIi8+PC9zdmc+')] opacity-50"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBzdHJva2U9ImhzbCh2YXIoLS1ib3JkZXIpKSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSI+PHBhdGggZD0iTTAgLjVIMzJNLjUgMFYzMiIvPjwvc3ZnPg==')] opacity-50"></div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,hsla(155,65%,55%,0.1),transparent)]"></div>
         
         <div className="container mx-auto px-4 md:px-6 relative">
@@ -108,23 +52,25 @@ export default function Hero() {
                 <div className="flex flex-col justify-center space-y-6 py-12">
                     <div className="flex items-center gap-2 text-primary font-semibold tracking-wider animate-in fade-in slide-in-from-bottom-4 duration-1000">
                         <TrendingUp className="h-5 w-5" />
-                        <span>PROFIT WITH PRECISION</span>
+                        <span>SMART PROFIT SYSTEM + FLEXIBLE SWP PLAN</span>
                     </div>
                     <h1
-                        key={currentIndex}
                         className="text-5xl font-extrabold tracking-tighter sm:text-6xl md:text-7xl !leading-tight animate-in fade-in slide-in-from-bottom-8 duration-1000"
-                        dangerouslySetInnerHTML={{ __html: currentSlide.title }}
-                    />
+                    >
+                       🔥 AI TRADING AGENT
+                    </h1>
+                    <p className="max-w-xl text-muted-foreground md:text-lg animate-in fade-in slide-in-from-bottom-12 duration-1000">
+                        हमारा उद्देश्य है एक FIXED, STABLE ROI देना। ट्रेडिंग रिस्क को एआई द्वारा कंट्रोल किया जाता है।
+                    </p>
                 </div>
                 <div className="relative hidden md:flex items-center justify-center">
                     <Image
-                        key={currentIndex}
-                        src={currentSlide.fgImage}
-                        alt="Feature image"
+                        src="https://placehold.co/600x600.png"
+                        alt="AI Trading Agent"
                         width={600}
                         height={600}
                         className="opacity-80 animate-in fade-in zoom-in-75 duration-1000"
-                        data-ai-hint={currentSlide.fgAiHint}
+                        data-ai-hint="robot trading chart"
                     />
                 </div>
             </div>
@@ -132,17 +78,6 @@ export default function Hero() {
         <div className="absolute right-0 top-0 h-full hidden md:flex flex-col justify-center items-center gap-12 bg-card/50 p-6 backdrop-blur-sm border-l border-border">
             <div className="mt-24">
                 <RotatingCircle />
-            </div>
-            <div className="flex flex-col items-center gap-4 text-sm font-semibold uppercase tracking-widest text-foreground">
-                <button onClick={handlePrev} className="flex items-center gap-2 hover:text-primary">
-                    <ArrowUp className="h-4 w-4" />
-                    <span>Prev</span>
-                </button>
-                <div className="h-16 w-px bg-border"></div>
-                <button onClick={handleNext} className="flex items-center gap-2 hover:text-primary">
-                    <span>Next</span>
-                    <ArrowDown className="h-4 w-4" />
-                </button>
             </div>
         </div>
     </section>
