@@ -1,7 +1,10 @@
-import { TrendingUp, ChevronDown, ChevronUp, ChevronRight } from "lucide-react";
+"use client";
+
+import { TrendingUp, ChevronDown, ChevronRight, ChevronUp } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
 
 const StepCard = ({ step, title, description }: { step: string; title: string; description: string; }) => (
     <div className="w-full text-center bg-card backdrop-blur-sm border-border rounded-lg p-8 shadow-lg h-full flex flex-col justify-center">
@@ -42,6 +45,29 @@ const steps = [
 ];
 
 export default function Cta() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section id="evaluation" className="w-full py-20 md:py-32 bg-background text-foreground relative overflow-hidden">
       {/* Background Illustrations */}
@@ -96,11 +122,18 @@ export default function Cta() {
         </div>
       </div>
       <div className="fixed bottom-8 right-8 z-50">
-        <Link href="#home" className="hidden md:inline-flex" aria-label="Scroll to top">
-            <Button size="icon" className="rounded-full h-14 w-14 bg-primary hover:bg-primary/90 shadow-lg">
-                <ChevronUp className="h-8 w-8" />
-            </Button>
-        </Link>
+        <Button
+            onClick={scrollToTop}
+            size="icon"
+            className={cn(
+                "rounded-full h-14 w-14 bg-primary hover:bg-primary/90 shadow-lg transition-all duration-300 ease-in-out",
+                "hidden md:inline-flex",
+                isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0 pointer-events-none"
+            )}
+            aria-label="Scroll to top"
+        >
+            <ChevronUp className="h-8 w-8" />
+        </Button>
       </div>
     </section>
   );
