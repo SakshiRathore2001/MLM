@@ -1,7 +1,8 @@
+
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
@@ -81,19 +82,48 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
   </Link>
 );
 
-const NavLinkDropdown = ({ label, children }: { label: string; children: React.ReactNode }) => (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <button className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+const NavLinkDropdown = ({ label, children }: { label: string; children: React.ReactNode }) => {
+  const [open, setOpen] = useState(false);
+  const timerRef = useRef<number | null>(null);
+
+  const handleOpen = () => {
+    if (timerRef.current) {
+      window.clearTimeout(timerRef.current);
+    }
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    timerRef.current = window.setTimeout(() => {
+      setOpen(false);
+    }, 150);
+  };
+
+  return (
+    <DropdownMenu open={open} onOpenChange={setOpen}>
+      <DropdownMenuTrigger
+        asChild
+      >
+        <button
+          onMouseEnter={handleOpen}
+          onMouseLeave={handleClose}
+          onClick={() => setOpen((prev) => !prev)}
+          className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        >
           {label}
           <ChevronDown className="h-4 w-4" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent
+        onMouseEnter={handleOpen}
+        onMouseLeave={handleClose}
+        onClick={() => setOpen(false)}
+      >
         {children}
       </DropdownMenuContent>
     </DropdownMenu>
-);
+  );
+};
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
