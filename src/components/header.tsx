@@ -130,10 +130,9 @@ export default function Header() {
 
   const navLinks = [
     { href: "#home", label: "Home" },
-    { href: "#about", label: "About", dropdown: true },
-    { href: "#trading", label: "Trading", dropdown: true },
-    { href: "#services", label: "Services", dropdown: true },
-    { href: "#blog", label: "Blog", dropdown: true },
+    { href: "#allocation", label: "About" },
+    { href: "#services", label: "SWP" },
+    { href: "#plans", label: "ROI" },
     { href: "#contact", label: "Contact" },
   ];
 
