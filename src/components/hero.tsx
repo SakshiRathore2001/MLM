@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -120,11 +121,11 @@ export default function Hero() {
                 </div>
             </div>
         </div>
-        <div className="absolute right-0 top-0 h-full hidden md:flex flex-col justify-center items-center gap-12 bg-card/10 p-6 backdrop-blur-sm border-l border-border">
+        <div className="absolute right-0 top-0 h-full hidden md:flex flex-col justify-center items-center gap-12 bg-card/30 p-6 backdrop-blur-sm border-l border-border">
             <div className="mt-24">
                 <RotatingCircle />
             </div>
-            <div className="flex flex-col items-center gap-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+            <div className="flex flex-col items-center gap-4 text-sm font-semibold uppercase tracking-widest text-foreground">
                 <button onClick={handlePrev} className="flex items-center gap-2 hover:text-primary">
                     <ArrowUp className="h-4 w-4" />
                     <span>Prev</span>
