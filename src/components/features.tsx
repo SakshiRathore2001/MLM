@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { ArrowRight, FileText } from "lucide-react";
 
 const ServiceCard = ({ serviceNumber, title, description, image, imageHint }: { serviceNumber: string; title: string; description: string; image: string; imageHint: string; }) => (
     <Card className="group flex flex-col bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
@@ -60,6 +61,29 @@ const services = [
   },
 ];
 
+const GuidanceCard = () => (
+    <Card className="relative rounded-lg overflow-hidden p-6 text-white bg-emerald-800 h-full flex flex-col justify-center items-center">
+        <Image
+            src="https://placehold.co/600x800.png"
+            alt="Expert guidance"
+            fill
+            className="object-cover opacity-20"
+            data-ai-hint="man smiling phone"
+        />
+        <div className="relative z-10 flex flex-col items-center text-center space-y-3">
+            <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
+                <FileText className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold leading-tight">Fxvibe Expert Guidance for Financial Rise!...</h3>
+            <p className="text-sm">Customized Forex Strategy Consultation.</p>
+            <Button className="mt-4 bg-white text-black hover:bg-white/90 rounded-full font-semibold">
+                <ArrowRight className="mr-2 h-4 w-4" /> START NOW
+            </Button>
+        </div>
+    </Card>
+);
+
+
 export default function Features() {
   return (
     <section id="services" className="w-full py-20 md:py-24 bg-white">
@@ -76,6 +100,28 @@ export default function Features() {
           {services.map((service) => (
             <ServiceCard key={service.title} {...service} />
           ))}
+        </div>
+        <div className="mt-8 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+            <div className="hidden lg:flex items-center justify-center p-8">
+                <Image
+                    src="https://placehold.co/600x400.png"
+                    alt="Financial Growth Illustration"
+                    width={450}
+                    height={300}
+                    className="w-full h-auto object-contain"
+                    data-ai-hint="bull market financial graph"
+                />
+            </div>
+
+            <ServiceCard
+                serviceNumber="SERVICE #4"
+                title="Trade Monitoring and Support"
+                description="Ever undertakes laborious physical..."
+                image="https://placehold.co/600x400.png"
+                imageHint="woman headset support"
+            />
+
+            <GuidanceCard />
         </div>
       </div>
     </section>
