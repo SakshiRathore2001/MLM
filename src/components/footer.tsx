@@ -52,7 +52,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#163e37] text-gray-300 font-body">
       {/* Subscribe Section */}
-      <div className="py-16">
+      <div className="py-12">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -85,7 +85,7 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-16 md:px-6">
+      <div className="container mx-auto px-4 py-12 md:px-6">
         <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
           
           <div className="lg:col-span-2">
