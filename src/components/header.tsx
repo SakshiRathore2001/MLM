@@ -134,7 +134,7 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/#allocation", label: "About" },
     { href: "/swp", label: "SWP" },
-    { href: "/#plans", label: "ROI" },
+    { href: "/roi", label: "ROI" },
     { href: "/contact", label: "Contact" },
   ];
 
