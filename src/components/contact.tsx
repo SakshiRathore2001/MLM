@@ -6,7 +6,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { 
-  ChevronUp, 
   Mail, 
   Phone, 
   MessageCircleQuestion, 
@@ -18,7 +17,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -54,50 +52,9 @@ const WhatsAppIcon = () => (
     </svg>
 );
 
-
-const ScrollToTopButton = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  return (
-    <div className="fixed bottom-8 right-8 z-50">
-      <Button
-        onClick={scrollToTop}
-        size="icon"
-        className={cn(
-          "rounded-full h-12 w-12 bg-primary hover:bg-primary/90 shadow-lg transition-all duration-300 ease-in-out",
-          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0 pointer-events-none"
-        )}
-        aria-label="Scroll to top"
-      >
-        <ChevronUp className="h-6 w-6" />
-      </Button>
-    </div>
-  );
-};
-
-
 export default function ContactPage() {
     return (
-        <div className="relative">
+        <div>
             <section className="relative w-full py-20 md:py-24 text-white">
                 <Image
                     src="https://placehold.co/1920x1080.png"
@@ -168,11 +125,13 @@ export default function ContactPage() {
                                 <p className="text-foreground/80 mt-2 text-sm text-left">Mon - Friday : 9 am to 5 pm, Saturday : 10 am to 1 pm</p>
                             </div>
                             <div className="pt-2">
-                                <Button variant="ghost" className="rounded-full text-primary hover:text-primary hover:bg-transparent p-0 justify-start w-full">
-                                   <div className="bg-primary/10 p-2 rounded-full mr-3">
-                                     <WhatsAppIcon />
-                                   </div>
-                                   <span className="font-semibold">WHATSAPP</span>
+                                <Button asChild variant="ghost" className="rounded-full text-primary hover:text-primary hover:bg-transparent p-0 justify-start w-full">
+                                   <Link href="#">
+                                     <div className="bg-primary/10 p-2 rounded-full mr-3">
+                                       <WhatsAppIcon />
+                                     </div>
+                                     <span className="font-semibold">WHATSAPP</span>
+                                   </Link>
                                 </Button>
                             </div>
                         </Card>
@@ -270,8 +229,6 @@ export default function ContactPage() {
                 </div>
               </div>
             </section>
-
-            <ScrollToTopButton />
         </div>
     );
 }
