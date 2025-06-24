@@ -133,7 +133,7 @@ export default function Header() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/#allocation", label: "About" },
-    { href: "/#services", label: "SWP" },
+    { href: "/swp", label: "SWP" },
     { href: "/#plans", label: "ROI" },
     { href: "/contact", label: "Contact" },
   ];
