@@ -131,34 +131,27 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#allocation", label: "About" },
-    { href: "#services", label: "SWP" },
-    { href: "#plans", label: "ROI" },
-    { href: "#contact", label: "Contact" },
+    { href: "/", label: "Home" },
+    { href: "/#allocation", label: "About" },
+    { href: "/#services", label: "SWP" },
+    { href: "/#plans", label: "ROI" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-sm border-b border-border/50">
       <TopBar />
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="#" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <BarChart className="h-8 w-8 text-primary" />
           <span className="text-2xl font-bold">Fxvibe</span>
         </Link>
         <nav className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) =>
-            link.dropdown ? (
-              <NavLinkDropdown key={link.href} label={link.label}>
-                <DropdownMenuItem>Sub-item 1</DropdownMenuItem>
-                <DropdownMenuItem>Sub-item 2</DropdownMenuItem>
-              </NavLinkDropdown>
-            ) : (
-              <NavLink key={link.href} href={link.href}>
-                {link.label}
-              </NavLink>
-            )
-          )}
+          {navLinks.map((link) => (
+            <NavLink key={link.href} href={link.href}>
+              {link.label}
+            </NavLink>
+          ))}
         </nav>
         <div className="flex items-center gap-4">
           <Button variant="ghost" className="hidden lg:flex items-center gap-2 rounded-full p-2 h-auto bg-card hover:bg-card">
@@ -180,7 +173,7 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <div className="flex flex-col gap-6 p-6">
-                <Link href="#" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
+                <Link href="/" className="flex items-center gap-2" onClick={() => setIsMenuOpen(false)}>
                   <BarChart className="h-6 w-6 text-primary" />
                   <span className="text-lg font-bold">Fxvibe</span>
                 </Link>
