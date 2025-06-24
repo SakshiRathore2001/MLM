@@ -100,10 +100,18 @@ export default function ContactPage() {
                 </div>
             </section>
 
-            <section className="w-full py-20 md:py-24 bg-background">
-                <div className="container mx-auto px-4 md:px-6">
+            <section className="relative w-full py-20 md:py-24">
+                 <Image
+                    src="https://placehold.co/1920x1080.png"
+                    alt="Contact background"
+                    fill
+                    className="object-cover"
+                    data-ai-hint="modern office interior"
+                />
+                <div className="absolute inset-0 bg-background/80" />
+                <div className="container mx-auto px-4 md:px-6 relative z-10">
                     <div className="grid gap-8 lg:grid-cols-3 lg:items-start lg:gap-12">
-                        <Card className="flex flex-col items-center text-center p-8 bg-card shadow-lg rounded-xl h-full">
+                        <Card className="flex flex-col items-center text-center p-8 bg-card/50 backdrop-blur-sm border border-border/20 shadow-lg rounded-xl h-full">
                             <CardHeader>
                                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
                                   <RequestCallBackIcon />
@@ -111,12 +119,12 @@ export default function ContactPage() {
                                 <CardTitle className="text-xl font-bold">Request Call Back</CardTitle>
                             </CardHeader>
                             <CardContent className="flex-grow flex flex-col items-center space-y-4 w-full">
-                                <p className="text-muted-foreground">Share ph num, we will back.</p>
-                                <Input placeholder="Ph Num..." className="bg-background text-sm" />
+                                <p className="text-foreground/80">Share ph num, we will back.</p>
+                                <Input placeholder="Ph Num..." className="bg-transparent placeholder:text-foreground/60 text-sm" />
                             </CardContent>
                         </Card>
 
-                        <Card className="flex flex-col items-center text-center p-8 bg-card shadow-lg rounded-xl h-full">
+                        <Card className="flex flex-col items-center text-center p-8 bg-card/50 backdrop-blur-sm border border-border/20 shadow-lg rounded-xl h-full">
                             <CardHeader>
                                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
                                     <MessageCircleQuestion className="h-10 w-10 text-primary" />
@@ -124,7 +132,7 @@ export default function ContactPage() {
                                 <CardTitle className="text-xl font-bold">Chat with Expert</CardTitle>
                             </CardHeader>
                             <CardContent className="flex-grow flex flex-col justify-center items-center space-y-4 w-full">
-                                <p className="text-muted-foreground">Live chat with forex specialist.</p>
+                                <p className="text-foreground/80">Live chat with forex specialist.</p>
                                 <Button variant="outline" className="rounded-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                                     <ArrowRight className="mr-2 h-4 w-4" />
                                     START CHAT
@@ -132,7 +140,7 @@ export default function ContactPage() {
                             </CardContent>
                         </Card>
 
-                        <Card className="p-8 bg-card shadow-lg rounded-xl space-y-6 h-full">
+                        <Card className="p-8 bg-card/50 backdrop-blur-sm border border-border/20 shadow-lg rounded-xl space-y-6 h-full">
                             <h3 className="text-xl font-bold text-left">Quick Contact</h3>
                             <div className="space-y-3">
                                 <Button asChild variant="secondary" className="w-full justify-start rounded-full bg-primary/10 text-primary hover:bg-primary/20">
@@ -150,7 +158,7 @@ export default function ContactPage() {
                             </div>
                             <div className="pt-2">
                                 <h3 className="text-xl font-bold text-left">Business Hours</h3>
-                                <p className="text-muted-foreground mt-2 text-sm text-left">Mon - Friday : 9 am to 5 pm, Saturday : 10 am to 1 pm</p>
+                                <p className="text-foreground/80 mt-2 text-sm text-left">Mon - Friday : 9 am to 5 pm, Saturday : 10 am to 1 pm</p>
                             </div>
                             <div className="pt-2">
                                 <Button variant="ghost" className="rounded-full text-primary hover:text-primary hover:bg-transparent p-0 justify-start w-full">
