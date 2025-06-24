@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Briefcase } from "lucide-react";
@@ -43,6 +46,8 @@ const plans = [
 ];
 
 export default function Pricing() {
+  const [selectedPlan, setSelectedPlan] = useState("5 Year Plan");
+
   return (
     <section id="plans" className="w-full py-20 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
@@ -56,7 +61,14 @@ export default function Pricing() {
         </div>
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           {plans.map((plan) => (
-            <Card key={plan.name} className={cn("flex flex-col", plan.isPopular && "border-primary ring-2 ring-primary shadow-lg")}>
+            <Card 
+              key={plan.name} 
+              onClick={() => setSelectedPlan(plan.name)}
+              className={cn(
+                "flex flex-col cursor-pointer transition-shadow", 
+                selectedPlan === plan.name ? "border-primary ring-2 ring-primary shadow-lg" : "hover:shadow-md"
+              )}
+            >
               <CardHeader className="text-center">
                 {plan.isPopular && (
                   <div className="text-sm font-semibold text-primary">MOST POPULAR</div>
@@ -79,7 +91,7 @@ export default function Pricing() {
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button className="w-full" variant={plan.isPopular ? "default" : "outline"}>
+                <Button className="w-full" variant={selectedPlan === plan.name ? "default" : "outline"}>
                   Select Plan
                 </Button>
               </CardFooter>
