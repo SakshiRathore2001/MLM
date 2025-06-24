@@ -154,15 +154,17 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-4">
-          <Button variant="ghost" className="hidden lg:flex items-center gap-2 rounded-full p-2 h-auto bg-card hover:bg-card">
-            <div className="bg-background rounded-full p-2">
-              <HelpCircle className="h-5 w-5 text-primary" />
-            </div>
-            <div className="text-left text-xs pr-2">
-              <p className="font-bold text-foreground">START</p>
-              <p className="text-muted-foreground">EVALUATION</p>
-            </div>
-            <ArrowRight className="h-4 w-4 text-primary" />
+          <Button asChild variant="ghost" className="hidden lg:flex items-center gap-2 rounded-full p-2 h-auto bg-card hover:bg-card">
+            <Link href="/evaluation">
+                <div className="bg-background rounded-full p-2">
+                <HelpCircle className="h-5 w-5 text-primary" />
+                </div>
+                <div className="text-left text-xs pr-2">
+                <p className="font-bold text-foreground">START</p>
+                <p className="text-muted-foreground">EVALUATION</p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-primary" />
+            </Link>
           </Button>
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
@@ -189,7 +191,9 @@ export default function Header() {
                     </Link>
                   ))}
                 </nav>
-                <Button variant="default" className="w-full">Start Evaluation</Button>
+                <Button asChild variant="default" className="w-full">
+                    <Link href="/evaluation" onClick={() => setIsMenuOpen(false)}>Start Evaluation</Link>
+                </Button>
               </div>
             </SheetContent>
           </Sheet>
