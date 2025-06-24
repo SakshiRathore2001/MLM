@@ -31,18 +31,18 @@ const TopBar = () => (
     <div className="container mx-auto flex h-12 items-center justify-between px-4 md:px-6 text-xs">
       <div className="flex items-center gap-6">
         <Link href="#" className="flex items-center gap-2 hover:text-foreground">
-          <User className="h-4 w-4" />
+          <User className="h-4 w-4 text-[rgb(112,212,157)]" />
           <div className="hidden sm:block">
             <p className="font-semibold">Login</p>
             <p>
-              <span className="text-[rgb(112,212,157)]">or</span> Create your account
+              <span className="text-white">or</span> Create your account
             </p>
           </div>
         </Link>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="sm" className="flex items-center gap-1 p-0 h-auto hover:bg-transparent text-muted-foreground hover:text-foreground">
-              <Globe className="h-4 w-4" />
+              <Globe className="h-4 w-4 text-[rgb(112,212,157)]" />
               <span>Se</span>
               <ChevronDown className="h-3 w-3" />
             </Button>
