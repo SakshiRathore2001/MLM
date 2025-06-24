@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { ChevronUp, Mail, Phone, MessageSquareQuestion, ArrowRight } from "lucide-react";
+import { ChevronUp, Mail, Phone, MessageCircleQuestion, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -119,7 +119,7 @@ export default function ContactPage() {
                         <Card className="flex flex-col items-center text-center p-8 bg-card shadow-lg rounded-xl h-full">
                             <CardHeader>
                                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
-                                    <MessageSquareQuestion className="h-10 w-10 text-primary" />
+                                    <MessageCircleQuestion className="h-10 w-10 text-primary" />
                                 </div>
                                 <CardTitle className="text-xl font-bold">Chat with Expert</CardTitle>
                             </CardHeader>
