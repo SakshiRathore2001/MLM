@@ -79,7 +79,7 @@ const ScrollToTopButton = () => {
 export default function ContactPage() {
     return (
         <div className="relative">
-            <section className="relative w-full py-20 md:py-32 text-white">
+            <section className="relative w-full py-20 md:py-24 text-white">
                 <Image
                     src="https://placehold.co/1920x1080.png"
                     alt="Contact background"
@@ -97,21 +97,9 @@ export default function ContactPage() {
                             <span>Contact Us</span>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <section className="relative w-full py-20 md:py-24">
-                 <Image
-                    src="https://placehold.co/1920x1080.png"
-                    alt="Contact background"
-                    fill
-                    className="object-cover"
-                    data-ai-hint="modern office interior"
-                />
-                <div className="absolute inset-0 bg-background/80" />
-                <div className="container mx-auto px-4 md:px-6 relative z-10">
-                    <div className="grid gap-8 lg:grid-cols-3 lg:items-start lg:gap-12">
-                        <Card className="flex flex-col items-center text-center p-8 bg-card/50 backdrop-blur-sm border border-border/20 shadow-lg rounded-xl h-full">
+                    
+                    <div className="grid gap-8 lg:grid-cols-3 lg:items-start lg:gap-12 mt-16">
+                        <Card className="flex flex-col items-center text-center p-8 bg-card shadow-lg rounded-xl h-full">
                             <CardHeader>
                                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
                                   <RequestCallBackIcon />
@@ -124,7 +112,7 @@ export default function ContactPage() {
                             </CardContent>
                         </Card>
 
-                        <Card className="flex flex-col items-center text-center p-8 bg-card/50 backdrop-blur-sm border border-border/20 shadow-lg rounded-xl h-full">
+                        <Card className="flex flex-col items-center text-center p-8 bg-card shadow-lg rounded-xl h-full">
                             <CardHeader>
                                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
                                     <MessageCircleQuestion className="h-10 w-10 text-primary" />
@@ -140,7 +128,7 @@ export default function ContactPage() {
                             </CardContent>
                         </Card>
 
-                        <Card className="p-8 bg-card/50 backdrop-blur-sm border border-border/20 shadow-lg rounded-xl space-y-6 h-full">
+                        <Card className="p-8 bg-card shadow-lg rounded-xl space-y-6 h-full">
                             <h3 className="text-xl font-bold text-left">Quick Contact</h3>
                             <div className="space-y-3">
                                 <Button asChild variant="secondary" className="w-full justify-start rounded-full bg-primary/10 text-primary hover:bg-primary/20">
@@ -177,3 +165,5 @@ export default function ContactPage() {
         </div>
     );
 }
+
+    
