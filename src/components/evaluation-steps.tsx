@@ -1,8 +1,6 @@
-
 "use client";
 
-import { TrendingUp, ChevronDown, ChevronRight } from "lucide-react";
-import Image from "next/image";
+import { ChevronDown, ChevronRight } from "lucide-react";
 
 const StepCard = ({ step, title, description }: { step: string; title: string; description: string; }) => (
     <div className="w-full text-center bg-card backdrop-blur-sm border-border rounded-lg p-8 shadow-lg h-full flex flex-col justify-center">
@@ -44,36 +42,8 @@ const steps = [
 
 export default function EvaluationSteps() {
   return (
-    <section id="evaluation-steps" className="w-full py-20 md:py-32 bg-background text-foreground relative overflow-hidden">
-      {/* Background Illustrations */}
-      <Image 
-        src="https://placehold.co/800x800.png"
-        alt="Bull illustration"
-        width={800}
-        height={800}
-        className="absolute top-1/2 left-0 opacity-[0.03] -translate-y-1/2 -translate-x-1/3 pointer-events-none"
-        data-ai-hint="bull lineart"
-      />
-      <Image 
-        src="https://placehold.co/800x800.png"
-        alt="Bear illustration"
-        width={800}
-        height={800}
-        className="absolute top-1/2 right-0 opacity-[0.03] -translate-y-1/2 translate-x-1/3 pointer-events-none"
-        data-ai-hint="bear lineart"
-      />
-
-      <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-        <div className="flex justify-center items-center gap-2 text-primary font-semibold tracking-wider">
-            <TrendingUp className="h-5 w-5" />
-            <span>HOW IT WORKS</span>
-        </div>
-        <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl mt-4">
-            Deep Dive into Evaluation
-        </h2>
-
-        <div className="mt-16 max-w-5xl mx-auto">
-            {/* Mobile View */}
+    <div>
+        <div className="max-w-5xl mx-auto">
             <div className="flex flex-col items-center gap-8 md:hidden">
                 <StepCard {...steps[0]} />
                 <DownArrowCircle />
@@ -82,20 +52,18 @@ export default function EvaluationSteps() {
                 <StepCard {...steps[2]} />
             </div>
 
-            {/* Desktop View */}
             <div className="hidden md:grid grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-8">
-                 <StepCard {...steps[0]} />
-                 <div className="flex justify-center items-center h-full pt-16">
+                    <StepCard {...steps[0]} />
+                    <div className="flex justify-center items-center h-full pt-16">
                     <RightArrowCircle />
-                 </div>
-                 <StepCard {...steps[1]} />
-                 <div className="flex justify-center items-center h-full pt-16">
+                    </div>
+                    <StepCard {...steps[1]} />
+                    <div className="flex justify-center items-center h-full pt-16">
                     <RightArrowCircle />
-                 </div>
-                 <StepCard {...steps[2]} />
+                    </div>
+                    <StepCard {...steps[2]} />
             </div>
         </div>
-      </div>
-    </section>
+    </div>
   );
 }

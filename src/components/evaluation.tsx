@@ -1,7 +1,8 @@
-
 import Image from "next/image";
 import Link from "next/link";
 import EvaluationSteps from "./evaluation-steps";
+import ProfitCalculator from "./profit-calculator";
+import { TrendingUp } from "lucide-react";
 
 export default function EvaluationPage() {
     return (
@@ -26,7 +27,44 @@ export default function EvaluationPage() {
                     </div>
                 </div>
             </section>
-            <EvaluationSteps />
+            
+            <section className="w-full py-20 md:py-24 bg-background">
+                <div className="container mx-auto px-4 md:px-6">
+                    <div className="grid lg:grid-cols-2 gap-16 items-start">
+                        <div className="relative">
+                            <Image 
+                                src="https://placehold.co/800x800.png"
+                                alt="Bull illustration"
+                                width={800}
+                                height={800}
+                                className="absolute top-1/2 left-0 opacity-[0.03] -translate-y-1/2 -translate-x-1/3 pointer-events-none"
+                                data-ai-hint="bull lineart"
+                            />
+                            <Image 
+                                src="https://placehold.co/800x800.png"
+                                alt="Bear illustration"
+                                width={800}
+                                height={800}
+                                className="absolute top-1/2 right-0 opacity-[0.03] -translate-y-1/2 translate-x-1/3 pointer-events-none"
+                                data-ai-hint="bear lineart"
+                            />
+                             <div className="text-center mb-12">
+                                <div className="flex justify-center items-center gap-2 text-primary font-semibold tracking-wider">
+                                    <TrendingUp className="h-5 w-5" />
+                                    <span>HOW IT WORKS</span>
+                                </div>
+                                <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl mt-4">
+                                    Deep Dive into Evaluation
+                                </h2>
+                            </div>
+                            <EvaluationSteps />
+                        </div>
+                        <div>
+                            <ProfitCalculator />
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
