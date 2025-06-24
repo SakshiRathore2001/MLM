@@ -31,7 +31,7 @@ export default function EvaluationPage() {
             
             <section className="w-full py-20 md:py-24 bg-background">
                 <div className="container mx-auto px-4 md:px-6">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    <div className="grid lg:grid-cols-2 gap-16 items-start">
                         <div>
                              <div className="flex items-center gap-2 text-primary font-semibold tracking-wider">
                                 <Calculator className="h-5 w-5" />

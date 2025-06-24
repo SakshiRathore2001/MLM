@@ -3,7 +3,7 @@
 import { ChevronDown, ChevronRight } from "lucide-react";
 
 const StepCard = ({ step, title, description }: { step: string; title: string; description: string; }) => (
-    <div className="w-full text-center bg-card backdrop-blur-sm border-border rounded-lg p-8 shadow-lg h-full flex flex-col justify-center">
+    <div className="w-full text-center border border-border rounded-lg p-8 h-full flex flex-col justify-center">
         <p className="text-primary font-bold tracking-wider">{step}</p>
         <h3 className="text-2xl font-bold mt-2 text-foreground">{title}</h3>
         <p className="mt-4 text-muted-foreground text-sm">{description}</p>
