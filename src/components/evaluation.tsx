@@ -1,8 +1,9 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import EvaluationSteps from "./evaluation-steps";
 import ProfitCalculator from "./profit-calculator";
-import { TrendingUp } from "lucide-react";
+import { TrendingUp, Calculator } from "lucide-react";
 
 export default function EvaluationPage() {
     return (
@@ -30,7 +31,25 @@ export default function EvaluationPage() {
             
             <section className="w-full py-20 md:py-24 bg-background">
                 <div className="container mx-auto px-4 md:px-6">
-                    <div className="grid lg:grid-cols-2 gap-16 items-start">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                             <div className="flex items-center gap-2 text-primary font-semibold tracking-wider">
+                                <Calculator className="h-5 w-5" />
+                                <span>PLAN YOUR PROFIT</span>
+                            </div>
+                            <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl mt-4">
+                                Calculate Your Potential Earnings
+                            </h2>
+                            <p className="mt-4 text-muted-foreground md:text-lg">
+                              Use our interactive calculator to project your profits based on different investment amounts and time periods. See how our profit-sharing model works and plan your financial journey with confidence.
+                            </p>
+                        </div>
+                        <div>
+                            <ProfitCalculator />
+                        </div>
+                    </div>
+
+                    <div className="mt-20 md:mt-32">
                         <div className="relative">
                             <Image 
                                 src="https://placehold.co/800x800.png"
@@ -54,13 +73,10 @@ export default function EvaluationPage() {
                                     <span>HOW IT WORKS</span>
                                 </div>
                                 <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl mt-4">
-                                    Deep Dive into Evaluation
+                                    Deep Dive into Our Evaluation Process
                                 </h2>
                             </div>
                             <EvaluationSteps />
-                        </div>
-                        <div>
-                            <ProfitCalculator />
                         </div>
                     </div>
                 </div>
