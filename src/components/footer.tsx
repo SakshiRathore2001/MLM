@@ -8,19 +8,6 @@ import Image from "next/image";
 import { useEffect, useState } from 'react';
 import { cn } from "@/lib/utils";
 
-// Inline SVGs for Apple and Google Play icons
-const AppleIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 384 512" fill="currentColor" height="1em" width="1em" {...props}>
-      <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C39.2 141.6 0 184.2 0 241.2c0 61.6 31.3 158.4 82.2 207.1 29.7 28.1 63.3 40.8 96.2 40.8 34.3 0 63.6-12.6 88.9-12.6 25.4 0 55.6 12.6 88.9 12.6 33.8 0 65.8-12.6 94.4-40.8-21.4-19-42.5-44.1-42.5-76.3zm-67.4-168.9-24.3-16.7c-7.5-5.2-13-13.6-13.8-22.7-1.7-18.4 12.1-34.6 30.6-34.6 1.4 0 2.7.1 4.1.3 17.5 2.1 31.2 15.8 34.1 32.5.1 1.7.2 3.5.2 5.1-1.2 21.4-18.6 38.6-41.4 36.3z" />
-    </svg>
-  );
-
-const GooglePlayIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg viewBox="0 0 512 512" fill="currentColor" height="1em" width="1em" {...props}>
-      <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0L11 27.3l151.7 151.7L47 0zm152 453.4l60.1-60.1-280.8-161.2L199 453.4zM451.2 256l-57-57-152.1 152.1 57 57 152.1-152.1z" />
-    </svg>
-  );
-
 // Scroll to top button component
 const ScrollToTopButton = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -65,7 +52,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#163e37] text-gray-300 font-body">
       {/* Subscribe Section */}
-      <div className="py-16 bg-cover bg-center" style={{ backgroundImage: "linear-gradient(rgba(22, 62, 55, 0.9), rgba(22, 62, 55, 0.9)), url('https://placehold.co/1920x1080.png')" }} data-ai-hint="abstract dark green">
+      <div className="py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -163,26 +150,6 @@ export default function Footer() {
               <Link href="#" aria-label="Twitter" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"><Twitter className="h-5 w-5" /></Link>
               <Link href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"><Instagram className="h-5 w-5" /></Link>
               <Link href="#" aria-label="Youtube" className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"><Youtube className="h-5 w-5" /></Link>
-            </div>
-            <div className="space-y-3">
-                <Button asChild className="w-full h-12 bg-transparent border border-gray-500 hover:bg-white/10 justify-start rounded-lg text-left">
-                    <Link href="#">
-                        <AppleIcon className="h-6 w-6 mr-3 flex-shrink-0" />
-                        <span>
-                            <span className="block text-xs font-light">Download on the</span>
-                            <span className="block font-bold">APP STORE</span>
-                        </span>
-                    </Link>
-                </Button>
-                <Button asChild className="w-full h-12 bg-white text-black hover:bg-gray-200 justify-start rounded-lg text-left">
-                    <Link href="#">
-                        <GooglePlayIcon className="h-6 w-6 mr-3 flex-shrink-0" />
-                        <span>
-                            <span className="block text-xs font-light">GET IT ON</span>
-                            <span className="block font-bold">GOOGLE PLAY</span>
-                        </span>
-                    </Link>
-                </Button>
             </div>
           </div>
         </div>
