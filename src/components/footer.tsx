@@ -50,7 +50,7 @@ const ScrollToTopButton = () => {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#163e37] text-gray-300 font-body">
+    <footer className="relative z-10 bg-[#163e37] text-gray-300 font-body">
       {/* Subscribe Section */}
       <div className="py-8">
         <div className="container mx-auto px-4 md:px-6">
