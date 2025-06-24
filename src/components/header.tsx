@@ -34,7 +34,9 @@ const TopBar = () => (
           <User className="h-4 w-4" />
           <div className="hidden sm:block">
             <p className="font-semibold">Login</p>
-            <p>or Create your account</p>
+            <p>
+              <span className="text-[rgb(112,212,157)]">or</span> Create your account
+            </p>
           </div>
         </Link>
         <DropdownMenu>
