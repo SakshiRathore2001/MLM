@@ -39,7 +39,7 @@ export default function OtpPage() {
           <CardHeader className="space-y-1 text-center">
             <CardTitle className="text-2xl">OTP Verification</CardTitle>
             <CardDescription>
-              We've sent a one-time password to your email. Please enter it below.
+              We've sent a one-time password to your mobile number. Please enter it below.
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
