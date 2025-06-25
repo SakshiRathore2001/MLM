@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, ShieldCheck, PieChart, Quote, ArrowRight, Database, KeyRound, FileClock, CalendarCheck2, Activity, HeartHandshake, BrainCircuit, AreaChart, Wallet, Sparkles } from "lucide-react";
+import Images from "@/constants/Images.constants";
 
 // Data for the page
 const aumBreakdown = [
@@ -21,9 +22,18 @@ const securityFeatures = [
 ];
 
 const testimonials = [
-    { name: "John D.", quote: "I’ve seen incredible growth with the AUM platform. The transparency and consistent results give me peace of mind knowing my assets are in safe hands." },
-    { name: "Emily S.", quote: "The AI-driven investment strategies are unlike anything I’ve seen. I’m more confident in my investments than ever before." },
+    {
+        name: "John D.",
+        quote: "I’ve seen incredible growth with the AUM platform. The transparency and consistent results give me peace of mind knowing my assets are in safe hands.",
+        image: Images.rating3,
+    },
+    {
+        name: "Emily S.",
+        quote: "The AI-driven investment strategies are unlike anything I’ve seen. I’m more confident in my investments than ever before.",
+        image: Images.rating2,
+    },
 ];
+
 
 const stats = [
     { icon: <FileClock className="h-10 w-10 text-primary" />, value: "4 Hours", description: "Avg Payout Processing Time" },
@@ -48,7 +58,7 @@ export default function About() {
             {/* Hero Section */}
             <section className="relative w-full py-20 md:py-24 text-white">
                 <Image
-                    src="https://placehold.co/1920x1080.png"
+                    src={Images.bg3}
                     alt="AUM background"
                     fill
                     className="object-cover"
@@ -66,8 +76,8 @@ export default function About() {
             {/* AUM Overview */}
             <section className="py-20 md:py-24">
                 <div className="container mx-auto px-4 md:px-6 text-center">
-                     <h2 className="text-3xl font-bold text-primary mb-12">Total AUM Overview</h2>
-                     <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <h2 className="text-3xl font-bold text-primary mb-12">Total AUM Overview</h2>
+                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         <Card className="text-center p-8 bg-card shadow-lg">
                             <CardHeader>
                                 <CardTitle className="text-4xl font-extrabold">$150M+</CardTitle>
@@ -76,7 +86,7 @@ export default function About() {
                                 <p className="text-muted-foreground">Total AUM</p>
                             </CardContent>
                         </Card>
-                         <Card className="text-center p-8 bg-card shadow-lg">
+                        <Card className="text-center p-8 bg-card shadow-lg">
                             <CardHeader>
                                 <CardTitle className="text-4xl font-extrabold">35%</CardTitle>
                             </CardHeader>
@@ -84,14 +94,14 @@ export default function About() {
                                 <p className="text-muted-foreground">Increase (Year Over Year)</p>
                             </CardContent>
                         </Card>
-                     </div>
+                    </div>
                 </div>
             </section>
 
             {/* Stats Section */}
             <section
                 className="py-20 md:py-24 bg-[#1a2e2a] text-white relative"
-                style={{backgroundImage: "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke-width='2' stroke='rgba(95,184,172,0.1)'%3e%3cpath d='M0 16h16l8-8m-4 16l8-8'/%3e%3c/svg%3e\")"}}
+                style={{ backgroundImage: "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke-width='2' stroke='rgba(95,184,172,0.1)'%3e%3cpath d='M0 16h16l8-8m-4 16l8-8'/%3e%3c/svg%3e\")" }}
             >
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -107,7 +117,7 @@ export default function About() {
                 </div>
             </section>
 
-             {/* Why Choose Us Section */}
+            {/* Why Choose Us Section */}
             <section className="py-20 md:py-24">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center max-w-3xl mx-auto mb-12">
@@ -131,7 +141,7 @@ export default function About() {
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
-                             <div className="flex items-center gap-2 text-primary font-semibold tracking-wider mb-4">
+                            <div className="flex items-center gap-2 text-primary font-semibold tracking-wider mb-4">
                                 <PieChart className="h-5 w-5" />
                                 <span>AUM BREAKDOWN BY STRATEGY</span>
                             </div>
@@ -154,30 +164,30 @@ export default function About() {
                             </Table>
                         </div>
                         <div>
-                             <div className="flex items-center gap-2 text-primary font-semibold tracking-wider mb-4">
+                            <div className="flex items-center gap-2 text-primary font-semibold tracking-wider mb-4">
                                 <TrendingUp className="h-5 w-5" />
                                 <span>PERFORMANCE TRACKING</span>
                             </div>
-                             <p className="text-muted-foreground mb-6">Our system offers detailed tracking of your assets' performance. A line graph here would show AUM growth over time.</p>
-                             <div className="grid grid-cols-3 gap-4 text-center">
-                                 <div className="bg-background p-4 rounded-lg">
-                                     <p className="text-2xl font-bold">1.8%</p>
-                                     <p className="text-xs text-muted-foreground">Monthly Growth</p>
-                                 </div>
-                                 <div className="bg-background p-4 rounded-lg">
-                                     <p className="text-2xl font-bold">21.6%</p>
-                                     <p className="text-xs text-muted-foreground">Annual Growth</p>
-                                 </div>
-                                  <div className="bg-background p-4 rounded-lg">
-                                     <p className="text-2xl font-bold">75%</p>
-                                     <p className="text-xs text-muted-foreground">Total Return</p>
-                                 </div>
-                             </div>
+                            <p className="text-muted-foreground mb-6">Our system offers detailed tracking of your assets' performance. A line graph here would show AUM growth over time.</p>
+                            <div className="grid grid-cols-3 gap-4 text-center">
+                                <div className="bg-background p-4 rounded-lg">
+                                    <p className="text-2xl font-bold">1.8%</p>
+                                    <p className="text-xs text-muted-foreground">Monthly Growth</p>
+                                </div>
+                                <div className="bg-background p-4 rounded-lg">
+                                    <p className="text-2xl font-bold">21.6%</p>
+                                    <p className="text-xs text-muted-foreground">Annual Growth</p>
+                                </div>
+                                <div className="bg-background p-4 rounded-lg">
+                                    <p className="text-2xl font-bold">75%</p>
+                                    <p className="text-xs text-muted-foreground">Total Return</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-            
+
             {/* Security Section */}
             <section className="py-20 md:py-24">
                 <div className="container mx-auto px-4 md:px-6">
@@ -197,45 +207,53 @@ export default function About() {
                 </div>
             </section>
 
-             {/* Testimonials */}
+            {/* Testimonials */}
             <section className="py-20 md:py-24 bg-card">
-                 <div className="container mx-auto px-4 md:px-6">
-                     <div className="text-center max-w-3xl mx-auto mb-12">
+                <div className="container mx-auto px-4 md:px-6">
+                    <div className="text-center max-w-3xl mx-auto mb-12">
                         <h2 className="text-3xl font-bold">Client Testimonials</h2>
                         <p className="mt-4 text-muted-foreground">We value the trust of our investors. Here's what some of them have to say.</p>
                     </div>
                     <div className="grid md:grid-cols-2 gap-8">
                         {testimonials.map((testimonial) => (
-                            <Card key={testimonial.name} className="p-6">
-                                <CardContent className="pt-6">
-                                    <Quote className="h-8 w-8 text-primary/50 mb-4" />
+                            <Card key={testimonial.name} className="p-6 flex flex-col items-center text-center">
+                                <Image
+                                    src={testimonial.image}
+                                    alt={testimonial.name}
+                                    width={100}
+                                    height={100}
+                                    className="rounded-full mb-4 object-cover"
+                                />
+                                <CardContent className="p-0">
+                                    {/* <Quote className="h-8 w-8 text-primary/50 mb-4 mx-auto" /> */}
                                     <p className="text-muted-foreground italic mb-4">"{testimonial.quote}"</p>
-                                    <p className="font-semibold text-right">- {testimonial.name}</p>
+                                    <p className="font-semibold">- {testimonial.name}</p>
                                 </CardContent>
                             </Card>
-                        ))}
-                    </div>
-                 </div>
-            </section>
 
-            {/* CTA */}
-            <section className="w-full py-20 md:py-24 bg-primary/10">
-                <div className="container mx-auto px-4 md:px-6 text-center">
-                    <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl">
-                    Ready to Start Investing?
-                    </h2>
-                    <p className="mt-4 text-muted-foreground md:text-lg max-w-2xl mx-auto">
-                    Join us today and let our AI-driven strategies work for you.
-                    </p>
-                    <div className="mt-8">
-                    <Button asChild size="lg">
-                        <Link href="/evaluation">
-                        Start Your Evaluation Now <ArrowRight className="ml-2 h-5 w-5" />
-                        </Link>
-                    </Button>
+                        ))}
                     </div>
                 </div>
             </section>
+
+            {/* CTA */}
+            {/* <section className="w-full py-20 md:py-24 bg-primary/10">
+                <div className="container mx-auto px-4 md:px-6 text-center">
+                    <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl">
+                        Ready to Start Investing?
+                    </h2>
+                    <p className="mt-4 text-muted-foreground md:text-lg max-w-2xl mx-auto">
+                        Join us today and let our AI-driven strategies work for you.
+                    </p>
+                    <div className="mt-8">
+                        <Button asChild size="lg">
+                            <Link href="/evaluation">
+                                Start Your Evaluation Now <ArrowRight className="ml-2 h-5 w-5" />
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+            </section> */}
         </div>
     )
 }

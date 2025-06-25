@@ -7,45 +7,46 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { useEffect, useState } from 'react';
 import { cn } from "@/lib/utils";
+import Images from '../constants/Images.constants';
 
 // Scroll to top button component
 const ScrollToTopButton = () => {
-    const [isVisible, setIsVisible] = useState(false);
-  
-    useEffect(() => {
-      const toggleVisibility = () => {
-        if (window.scrollY > 300) {
-          setIsVisible(true);
-        } else {
-          setIsVisible(false);
-        }
-      };
-      window.addEventListener("scroll", toggleVisibility);
-      return () => window.removeEventListener("scroll", toggleVisibility);
-    }, []);
-  
-    const scrollToTop = () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
     };
-  
-    return (
-      <div className="fixed bottom-8 right-8 z-50">
-        <Button
-          onClick={scrollToTop}
-          size="icon"
-          className={cn(
-            "rounded-full h-12 w-12 bg-primary hover:bg-primary/90 shadow-lg transition-all duration-300 ease-in-out",
-            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0 pointer-events-none"
-          )}
-          aria-label="Scroll to top"
-        >
-          <ChevronUp className="h-6 w-6" />
-        </Button>
-      </div>
-    );
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  return (
+    <div className="fixed bottom-8 right-8 z-50">
+      <Button
+        onClick={scrollToTop}
+        size="icon"
+        className={cn(
+          "rounded-full h-12 w-12 bg-primary hover:bg-primary/90 shadow-lg transition-all duration-300 ease-in-out",
+          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0 pointer-events-none"
+        )}
+        aria-label="Scroll to top"
+      >
+        <ChevronUp className="h-6 w-6" />
+      </Button>
+    </div>
+  );
 };
 
 export default function Footer() {
@@ -61,9 +62,9 @@ export default function Footer() {
               </h2>
               <div className="flex items-center gap-4 mt-6">
                 <div className="flex -space-x-4">
-                  <Image src="https://placehold.co/40x40.png" width={40} height={40} alt="Subscriber" className="rounded-full border-2 border-[#163e37]" data-ai-hint="man portrait"/>
-                  <Image src="https://placehold.co/40x40.png" width={40} height={40} alt="Subscriber" className="rounded-full border-2 border-[#163e37]" data-ai-hint="woman portrait"/>
-                  <Image src="https://placehold.co/40x40.png" width={40} height={40} alt="Subscriber" className="rounded-full border-2 border-[#163e37]" data-ai-hint="person portrait"/>
+                  <Image src={Images.rating3} width={40} height={40} alt="Subscriber" className="rounded-full border-2 border-[#163e37]" data-ai-hint="man portrait" />
+                  <Image src={Images.rating2} width={40} height={40} alt="Subscriber" className="rounded-full border-2 border-[#163e37]" data-ai-hint="woman portrait" />
+                  <Image src={Images.rating1} width={40} height={40} alt="Subscriber" className="rounded-full border-2 border-[#163e37]" data-ai-hint="person portrait" />
                 </div>
                 <div className="bg-primary/80 text-white text-xs font-bold px-3 py-1 rounded-full">5M+</div>
                 <p className="text-white font-semibold">Subscribers</p>
@@ -87,7 +88,7 @@ export default function Footer() {
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-12 md:px-6">
         <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-          
+
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-6">
               <BarChart className="h-8 w-8 text-primary" />
@@ -97,18 +98,18 @@ export default function Footer() {
               Access valuable insights and expertise download free trading guides today!..
             </p>
             <Button asChild variant="ghost" className="mt-6 text-primary p-0 hover:bg-transparent hover:text-primary/80">
-                <Link href="#">
-                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-3">
-                    <BookOpen className="h-6 w-6" />
-                    </div>
-                    <div className="text-left">
-                        <p className="text-xs text-white">FREE</p>
-                        <p className="font-bold text-base">TRADING GUIDES <ArrowRight className="inline h-4 w-4" /></p>
-                    </div>
-                </Link>
+              <Link href="#">
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mr-3">
+                  <BookOpen className="h-6 w-6" />
+                </div>
+                <div className="text-left">
+                  <p className="text-xs text-white">FREE</p>
+                  <p className="font-bold text-base">TRADING GUIDES <ArrowRight className="inline h-4 w-4" /></p>
+                </div>
+              </Link>
             </Button>
           </div>
-          
+
           <div>
             <h3 className="font-bold text-white mb-6">Contact</h3>
             <ul className="space-y-4 text-sm">
@@ -118,7 +119,7 @@ export default function Footer() {
               <li><Link href="#" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Live Chat</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="font-bold text-white mb-6">Useful Links</h3>
             <ul className="space-y-4 text-sm">
@@ -132,17 +133,17 @@ export default function Footer() {
           </div>
 
           <div>
-             <h3 className="font-bold text-white mb-6 opacity-0 hidden md:block">_</h3>
-             <ul className="space-y-4 text-sm">
-                <li><Link href="#" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Markets</Link></li>
-                <li><Link href="/#evaluation" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Evaluations</Link></li>
-                <li><Link href="#" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Affiliates</Link></li>
-                <li><Link href="/#plans" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Pricing</Link></li>
-                <li><Link href="#" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Get Funded</Link></li>
-                <li><Link href="#" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Course</Link></li>
+            <h3 className="font-bold text-white mb-6 opacity-0 hidden md:block">_</h3>
+            <ul className="space-y-4 text-sm">
+              <li><Link href="#" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Markets</Link></li>
+              <li><Link href="/#evaluation" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Evaluations</Link></li>
+              <li><Link href="#" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Affiliates</Link></li>
+              <li><Link href="/#plans" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Pricing</Link></li>
+              <li><Link href="#" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Get Funded</Link></li>
+              <li><Link href="#" className="flex items-center gap-2 hover:text-white"><ChevronUp className="h-4 w-4 text-primary" /> Course</Link></li>
             </ul>
           </div>
-          
+
           <div className="md:col-span-4 lg:col-span-1">
             <h3 className="font-bold text-white mb-6">Social Connect</h3>
             <div className="flex gap-3 mb-6">
@@ -154,7 +155,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      
+
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-6 md:px-6 flex flex-col md:flex-row justify-between items-center text-center text-xs">

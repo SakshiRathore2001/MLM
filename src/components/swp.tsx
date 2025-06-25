@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bot, Download, Landmark, LineChart, PauseCircle, PieChart, TrendingUp, UserCheck, Wallet } from "lucide-react";
 import SwpChart from "./swp-chart";
+import Images from "@/constants/Images.constants";
 
 const flowSteps = [
     {
@@ -78,7 +79,7 @@ export default function SwpPage() {
             {/* Hero Section */}
             <section className="relative w-full py-20 md:py-24 text-white">
                 <Image
-                    src="https://placehold.co/1920x1080.png"
+                    src={Images.bgmainn}
                     alt="SWP background"
                     fill
                     className="object-cover"
@@ -92,24 +93,54 @@ export default function SwpPage() {
             </section>
 
             {/* What is SWP? */}
-            <section className="py-20 md:py-24">
+            <section className="py-20 md:py-15">
                 <div className="container mx-auto px-4 md:px-6">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-4">
-                            <h2 className="text-3xl font-bold text-primary">What is SWP?</h2>
-                            <p className="text-lg text-muted-foreground">The Systematic Withdrawal Plan (SWP) in the context of your AI Trading Agent refers to a structured method where profits earned through trading are withdrawn periodically in a controlled, rule-based manner—balancing reinvestment, liquidity, and user incentives.</p>
-                            <p className="text-muted-foreground">This approach allows you to enjoy a regular income stream while your core investment continues to grow through the power of our AI-driven strategies.</p>
+                    <div className="grid md:grid-cols-2 gap-12 items-start">
+                        <div className="container mx-auto px-4 md:px-6">
+                            <div className="max-w-5xl mx-auto space-y-6">
+                                <h2 className="text-3xl font-bold text-primary text-left">What is SWP?</h2>
+
+                                <p className="text-lg text-muted-foreground text-left">
+                                    The Systematic Withdrawal Plan (SWP) in the context of our AI Trading Agent is a disciplined financial mechanism that enables investors to withdraw a fixed or custom amount of profit at regular intervals—while the remaining capital continues to compound through AI-powered trading strategies.
+                                </p>
+
+                                <p className="text-muted-foreground text-left">
+                                    Unlike traditional investment models, our SWP is smart, adaptive, and optimized for both <strong>wealth growth</strong> and <strong>liquidity</strong>. It is built to support your financial journey with predictable returns, customizable reinvestment logic, and low risk exposure—all guided by intelligent automation.
+                                </p>
+
+                                <div className="gap-10 text-left">
+                                    <div className="p-4">
+                                        <h3 className="text-xl font-semibold text-primary mb-2">💡 Key Benefits</h3>
+                                        <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                                            <li>Regular and predictable passive income stream</li>
+                                            <li>Capital continues to grow through AI-backed reinvestment</li>
+                                            <li>Flexibility to set monthly, quarterly, or custom withdrawal cycles</li>
+                                            <li>Low emotional stress—powered by data, not impulses</li>
+                                        </ul>
+                                    </div>
+
+                                    <div className="p-4">
+                                        <h3 className="text-xl font-semibold text-primary mb-2">📊 How It Works</h3>
+                                        <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                                            <li>Your profits are calculated based on trading performance</li>
+                                            <li>A percentage (e.g., 40%) is reinvested automatically</li>
+                                            <li>The remaining profit is sent to your wallet periodically</li>
+                                            <li>All decisions follow preset rules, removing human error</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div>
-                            <Image src="https://placehold.co/600x400.png" alt="SWP diagram" width={600} height={400} className="rounded-lg shadow-lg" data-ai-hint="flowchart diagram finance" />
+                            <Image src={Images.dynamic} alt="SWP diagram" width={600} height={100} className="rounded-lg shadow-lg" data-ai-hint="flowchart diagram finance" />
                         </div>
                     </div>
                 </div>
             </section>
 
-             {/* SWP Flow */}
+            {/* SWP Flow */}
             <section className="py-20 md:py-24 bg-card">
-                 <div className="container mx-auto px-4 md:px-6">
+                <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center max-w-3xl mx-auto mb-12">
                         <h2 className="text-3xl font-bold">SWP Flow Overview</h2>
                         <p className="mt-4 text-muted-foreground">From initial investment to profit distribution, here's how our automated SWP process works.</p>
@@ -141,7 +172,7 @@ export default function SwpPage() {
 
             {/* Benefits & Customization */}
             <section className="py-20 md:py-24 bg-card">
-                 <div className="container mx-auto px-4 md:px-6">
+                <div className="container mx-auto px-4 md:px-6">
                     <div className="grid lg:grid-cols-5 gap-12">
                         <div className="lg:col-span-3">
                             <h2 className="text-3xl font-bold mb-8">Benefits of SWP</h2>
@@ -158,7 +189,7 @@ export default function SwpPage() {
                             </div>
                         </div>
                         <div className="lg:col-span-2">
-                             <Card className="bg-primary/10 p-6 h-full border-primary">
+                            <Card className="bg-primary/10 p-6 h-full border-primary">
                                 <CardHeader className="p-0">
                                     <div className="flex items-center gap-3 mb-4">
                                         <Bot className="h-8 w-8 text-primary" />
@@ -176,7 +207,7 @@ export default function SwpPage() {
                                         ))}
                                     </ul>
                                 </CardContent>
-                             </Card>
+                            </Card>
                         </div>
                     </div>
                 </div>
