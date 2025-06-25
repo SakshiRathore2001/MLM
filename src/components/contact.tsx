@@ -1,10 +1,8 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
 import { 
   Mail, 
   Phone, 
@@ -26,6 +24,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ContactForm } from "./contact-form";
 
 const RequestCallBackIcon = () => (
   <svg
@@ -142,90 +141,22 @@ export default function ContactPage() {
             
             <section className="w-full py-20 md:py-24 bg-background text-foreground">
               <div className="container mx-auto px-4 md:px-6">
-                <div className="flex justify-between items-start mb-12">
-                  <div>
-                    <div className="flex items-center gap-2 text-primary font-semibold tracking-wider">
-                      <TrendingUp className="h-5 w-5" />
-                      <span>SEND MESSAGE</span>
-                    </div>
-                    <h2 className="text-4xl font-bold mt-2">Drop a line, Stay in touch</h2>
-                    <p className="text-muted-foreground mt-2">
-                      Please do not hesitate to contact us by sending a message.
-                    </p>
-                  </div>
-                  <div className="hidden md:flex items-center gap-2 bg-card p-3 rounded-full shadow-lg border">
-                     <span role="img" aria-label="waving hand" className="text-xl">👋</span>
-                     <p className="font-semibold text-sm">Say Hi & Hello</p>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
-                  <div className="space-y-8">
+                <div className="grid md:grid-cols-2 gap-12 items-start">
                     <div>
-                        <Label className="flex items-center gap-2 mb-2 font-semibold">
-                          <User className="h-4 w-4 text-primary" />
-                          <span>Your Name</span>
-                        </Label>
-                        <Input placeholder="Enter name here" />
+                        <div className="flex items-center gap-2 text-primary font-semibold tracking-wider">
+                            <TrendingUp className="h-5 w-5" />
+                            <span>SEND MESSAGE</span>
+                        </div>
+                        <h2 className="text-4xl font-bold mt-2">Drop a line, Stay in touch</h2>
+                        <p className="text-muted-foreground mt-2">
+                          Please do not hesitate to contact us by sending a message.
+                        </p>
+                         <div className="hidden md:flex items-center gap-2 bg-card p-3 rounded-full shadow-lg border mt-8 max-w-max">
+                            <span role="img" aria-label="waving hand" className="text-xl">👋</span>
+                            <p className="font-semibold text-sm">Say Hi & Hello</p>
+                         </div>
                     </div>
-                    
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div>
-                        <Label className="flex items-center gap-2 mb-2 font-semibold">
-                          <Mail className="h-4 w-4 text-primary" />
-                          <span>Email Address</span>
-                        </Label>
-                        <Input type="email" placeholder="Email address" />
-                      </div>
-                      <div>
-                        <Label className="flex items-center gap-2 mb-2 font-semibold">
-                          <Phone className="h-4 w-4 text-primary" />
-                          <span>Phone</span>
-                          <span className="text-muted-foreground text-xs">(optional)</span>
-                        </Label>
-                        <Input type="tel" placeholder="Ph num" />
-                      </div>
-                    </div>
-
-                    <div>
-                        <Label className="flex items-center gap-2 mb-2 font-semibold">
-                            <Building2 className="h-4 w-4 text-primary" />
-                            <span>Organization</span>
-                            <span className="text-muted-foreground text-xs">(optional)</span>
-                        </Label>
-                        <Input placeholder="Subject" />
-                    </div>
-
-                    <div>
-                        <Label className="flex items-center gap-2 mb-2 font-semibold">
-                          <MessageCircleQuestion className="h-4 w-4 text-primary" />
-                          <span>Want to Discuss About</span>
-                        </Label>
-                        <Select>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Withdrawals" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="withdrawals">Withdrawals</SelectItem>
-                            <SelectItem value="investment">Investment</SelectItem>
-                            <SelectItem value="support">Support</SelectItem>
-                            <SelectItem value="general">General Inquiry</SelectItem>
-                          </SelectContent>
-                        </Select>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col">
-                    <Label className="flex items-center gap-2 mb-2 font-semibold">
-                      <MessageSquare className="h-4 w-4 text-primary" />
-                      <span>Message</span>
-                    </Label>
-                    <Textarea placeholder="Message goes here" rows={11} className="flex-grow resize-none" />
-                    <Button size="lg" className="mt-4 rounded-full w-full md:w-auto self-start border border-primary text-primary" variant="outline">
-                        <ArrowRight className="mr-2 h-4 w-4" />
-                        START CHAT
-                    </Button>
-                  </div>
+                  <ContactForm />
                 </div>
               </div>
             </section>
