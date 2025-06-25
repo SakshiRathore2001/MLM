@@ -1,5 +1,8 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -8,6 +11,13 @@ import { BarChart, ArrowRight } from 'lucide-react';
 import Images from '@/constants/Images.constants';
 
 export default function LoginPage() {
+  const router = useRouter();
+
+  const handleLogin = () => {
+    // In a real app, you would handle form submission and authentication here.
+    router.push('/');
+  };
+
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center bg-background">
       <Image
@@ -41,7 +51,7 @@ export default function LoginPage() {
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
-            <Button className="w-full">
+            <Button className="w-full" onClick={handleLogin}>
               Login <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <p className="text-center text-sm text-muted-foreground">

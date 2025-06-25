@@ -1,6 +1,8 @@
+"use client";
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -9,6 +11,13 @@ import { BarChart, KeyRound } from 'lucide-react';
 import Images from '@/constants/Images.constants';
 
 export default function OtpPage() {
+  const router = useRouter();
+
+  const handleVerify = () => {
+    // In a real app, you would verify the OTP with a server action here.
+    router.push('/login');
+  };
+
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center bg-background">
       <Image
@@ -54,7 +63,7 @@ export default function OtpPage() {
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
-            <Button className="w-full">
+            <Button className="w-full" onClick={handleVerify}>
               <KeyRound className="mr-2 h-4 w-4" />
               Verify Account
             </Button>
