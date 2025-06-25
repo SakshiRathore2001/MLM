@@ -70,7 +70,7 @@ export default function SwpPage() {
                                     Unlike traditional investment models, our SWP is smart, adaptive, and optimized for both wealth growth and liquidity. It is built to support your financial journey with predictable returns, customizable reinvestment logic, and low risk exposure—all guided by intelligent automation.
                                 </p>
                             </div>
-                            
+
                             <div>
                                 <h3 className="text-2xl font-bold text-primary flex items-center gap-3">
                                     <Wallet className="h-6 w-6" />
@@ -98,7 +98,7 @@ export default function SwpPage() {
                             </div>
                         </div>
                         <div className="flex items-center justify-center">
-                            <Image src="https://placehold.co/600x800.png" alt="SWP diagram" width={600} height={800} className="rounded-lg shadow-2xl" data-ai-hint="futuristic financial chart" />
+                            <Image src={Images.dynamic2} alt="SWP diagram" width={600} height={800} className="rounded-lg shadow-2xl" data-ai-hint="futuristic financial chart" />
                         </div>
                     </div>
                 </div>

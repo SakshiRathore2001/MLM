@@ -29,29 +29,29 @@ const services = [
 ];
 
 const GuidanceCard = () => (
-    <Card className="relative rounded-xl overflow-hidden p-8 text-white bg-emerald-800/50 h-full flex flex-col md:flex-row justify-between items-center gap-8">
-        <Image
-            src={Images.dynamic}
-            alt="Expert guidance"
-            fill
-            className="object-cover opacity-20"
-            data-ai-hint="man smiling phone"
-        />
-        <div className="relative z-10 flex items-center gap-6 text-left">
-            <div className="hidden sm:flex w-20 h-20 rounded-full bg-white/10 flex-shrink-0 items-center justify-center backdrop-blur-sm border border-white/20">
-                <FileText className="w-10 h-10 text-white" />
-            </div>
-            <div>
-                <h3 className="text-3xl font-bold leading-tight">Expert Guidance for Your Financial Rise!</h3>
-                <p className="text-base text-gray-300 mt-2">Customized Forex Strategy Consultation.</p>
-            </div>
-        </div>
-        <div className="relative z-10">
-            <Button className="bg-white text-black hover:bg-primary hover:text-primary-foreground rounded-full font-semibold px-8 py-3 text-base whitespace-nowrap">
-                START NOW <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-        </div>
-    </Card>
+  <Card className="relative rounded-xl overflow-hidden p-8 text-white bg-emerald-800/50 h-full flex flex-col md:flex-row justify-between items-center gap-8">
+    <Image
+      src={Images.dynamic}
+      alt="Expert guidance"
+      fill
+      className="object-cover opacity-20"
+      data-ai-hint="man smiling phone"
+    />
+    <div className="relative z-10 flex items-center gap-6 text-left">
+      <div className="hidden sm:flex w-20 h-20 rounded-full bg-white/10 flex-shrink-0 items-center justify-center backdrop-blur-sm border border-white/20">
+        <FileText className="w-10 h-10 text-white" />
+      </div>
+      <div>
+        <h3 className="text-3xl font-bold leading-tight">Expert Guidance for Your Financial Rise!</h3>
+        <p className="text-base text-gray-300 mt-2">Customized Forex Strategy Consultation.</p>
+      </div>
+    </div>
+    <div className="relative z-10">
+      <Button className="bg-white text-black hover:bg-primary hover:text-primary-foreground rounded-full font-semibold px-8 py-3 text-base whitespace-nowrap">
+        START NOW <ArrowRight className="ml-2 h-5 w-5" />
+      </Button>
+    </div>
+  </Card>
 );
 
 export default function Features() {
@@ -66,7 +66,7 @@ export default function Features() {
             A comprehensive suite of tools and services to supercharge your trading journey. Explore our core features.
           </p>
         </div>
-        
+
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <Card key={service.title} className="p-6 text-center bg-card">
@@ -86,7 +86,7 @@ export default function Features() {
         </div>
 
         <div className="mt-16">
-            <GuidanceCard />
+          <GuidanceCard />
         </div>
       </div>
     </section>
