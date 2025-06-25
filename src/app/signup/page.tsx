@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { BarChart, ArrowRight } from 'lucide-react';
 import Images from '@/constants/Images.constants';
 
@@ -47,7 +48,19 @@ export default function SignupPage() {
             </div>
             <div className="grid gap-2">
               <Label htmlFor="mobile-number">Mobile Number</Label>
-              <Input id="mobile-number" type="tel" placeholder="+1 123 456 7890" />
+              <div className="flex gap-2">
+                <Select defaultValue="+91">
+                  <SelectTrigger className="w-[100px]">
+                    <SelectValue placeholder="Code" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="+91">IN +91</SelectItem>
+                    <SelectItem value="+1">US +1</SelectItem>
+                    <SelectItem value="+44">UK +44</SelectItem>
+                  </SelectContent>
+                </Select>
+                <Input id="mobile-number" type="tel" placeholder="987 654 3210" className="flex-1" />
+              </div>
             </div>
             <div className="grid gap-2">
               <Label htmlFor="email">Email (Optional)</Label>
