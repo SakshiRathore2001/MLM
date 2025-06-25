@@ -30,7 +30,7 @@ const TopBar = () => (
   <div className="bg-card text-muted-foreground border-b border-border">
     <div className="container mx-auto flex h-12 items-center justify-between px-4 md:px-6 text-xs">
       <div className="flex items-center gap-6">
-        <Link href="#" className="flex items-center gap-2 hover:text-foreground">
+        <Link href="/login" className="flex items-center gap-2 hover:text-foreground">
           <User className="h-4 w-4 text-[rgb(112,212,157)]" />
           <div className="hidden sm:block">
             <p className="font-semibold">Login</p>
@@ -136,6 +136,7 @@ export default function Header() {
     { href: "/swp", label: "SWP" },
     { href: "/roi", label: "ROI" },
     { href: "/contact", label: "Contact" },
+    { href: "/admin", label: "Admin" },
   ];
 
   return (
