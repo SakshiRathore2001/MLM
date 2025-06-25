@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bot, Download, Landmark, LineChart, PauseCircle, PieChart, TrendingUp, Wallet } from "lucide-react";
 import SwpChart from "./swp-chart";
+import Images from "@/constants/Images.constants";
 
 const flowSteps = [
     {
@@ -42,7 +43,7 @@ export default function SwpPage() {
             {/* Hero Section */}
             <section className="relative w-full py-20 md:py-24 text-white">
                 <Image
-                    src="https://placehold.co/1920x1080.png"
+                    src={Images.bgmainn}
                     alt="SWP background"
                     fill
                     className="object-cover"
@@ -56,7 +57,7 @@ export default function SwpPage() {
             </section>
 
             {/* What is SWP? */}
-            <section className="py-20 md:py-24">
+            <section className="py-20 md:py-15">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <div className="space-y-10">
@@ -103,9 +104,9 @@ export default function SwpPage() {
                 </div>
             </section>
 
-             {/* SWP Flow */}
+            {/* SWP Flow */}
             <section className="py-20 md:py-24 bg-card">
-                 <div className="container mx-auto px-4 md:px-6">
+                <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center max-w-3xl mx-auto mb-12">
                         <h2 className="text-3xl font-bold">SWP Flow Overview</h2>
                         <p className="mt-4 text-muted-foreground">From initial investment to profit distribution, here's how our automated SWP process works.</p>

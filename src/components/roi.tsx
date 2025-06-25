@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { DollarSign, TrendingUp, Zap } from "lucide-react";
 import RoiChart from "./roi-chart";
+import Images from "@/constants/Images.constants";
 
 const roiExampleData = [
     { month: 1, capitalBefore: 1000.00, monthlyProfit: 54.00, withdrawn: 27.00, reinvested: 27.00, newCapital: 1027.00, cumulative: 27.00 },
@@ -25,7 +26,7 @@ export default function RoiPage() {
             {/* Hero Section */}
             <section className="relative w-full py-20 md:py-24 text-white">
                 <Image
-                    src="https://placehold.co/1920x1080.png"
+                    src={Images.bgmainn}
                     alt="ROI background"
                     fill
                     className="object-cover"
@@ -50,12 +51,12 @@ export default function RoiPage() {
                                 Return on Investment (ROI) measures the profitability of an investment relative to its cost. In the context of your AI Trading Agent, ROI is calculated based on the trading profits generated from capital, considering both the monthly profits and the amount withdrawn or reinvested.
                             </p>
                             <h3 className="text-2xl font-bold pt-4">How ROI Works</h3>
-                             <p className="text-muted-foreground">
+                            <p className="text-muted-foreground">
                                 The user starts with a fixed capital, and the AI aims to generate a monthly profit (e.g., 5.4% monthly). This profit is then split between withdrawal and reinvestment, ensuring both short-term liquidity and long-term growth.
                             </p>
                         </div>
                         <div>
-                            <Image src="https://placehold.co/600x400.png" alt="ROI diagram" width={600} height={400} className="rounded-lg shadow-lg" data-ai-hint="financial growth chart" />
+                            <Image src={Images.graphimage} alt="ROI diagram" width={500} height={200} className="rounded-lg shadow-lg" data-ai-hint="financial growth chart" />
                         </div>
                     </div>
                 </div>
@@ -63,7 +64,7 @@ export default function RoiPage() {
 
             {/* Example Calculation */}
             <section className="py-20 md:py-24 bg-card">
-                 <div className="container mx-auto px-4 md:px-6">
+                <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center max-w-3xl mx-auto mb-12">
                         <h2 className="text-3xl font-bold">Example Calculation</h2>
                         <p className="mt-4 text-muted-foreground">This table shows a 5-month projection based on a $1,000 initial investment with a 5.4% monthly ROI, split 50/50 between withdrawal and reinvestment.</p>
@@ -83,15 +84,15 @@ export default function RoiPage() {
                             </TableHeader>
                             <TableBody>
                                 {roiExampleData.map((row) => (
-                                <TableRow key={row.month}>
-                                    <TableCell>{row.month}</TableCell>
-                                    <TableCell className="hidden md:table-cell">${row.capitalBefore.toFixed(2)}</TableCell>
-                                    <TableCell className="hidden sm:table-cell">${row.monthlyProfit.toFixed(2)}</TableCell>
-                                    <TableCell>${row.withdrawn.toFixed(2)}</TableCell>
-                                    <TableCell className="hidden sm:table-cell">${row.reinvested.toFixed(2)}</TableCell>
-                                    <TableCell>${row.newCapital.toFixed(2)}</TableCell>
-                                    <TableCell className="hidden md:table-cell">${row.cumulative.toFixed(2)}</TableCell>
-                                </TableRow>
+                                    <TableRow key={row.month}>
+                                        <TableCell>{row.month}</TableCell>
+                                        <TableCell className="hidden md:table-cell">${row.capitalBefore.toFixed(2)}</TableCell>
+                                        <TableCell className="hidden sm:table-cell">${row.monthlyProfit.toFixed(2)}</TableCell>
+                                        <TableCell>${row.withdrawn.toFixed(2)}</TableCell>
+                                        <TableCell className="hidden sm:table-cell">${row.reinvested.toFixed(2)}</TableCell>
+                                        <TableCell>${row.newCapital.toFixed(2)}</TableCell>
+                                        <TableCell className="hidden md:table-cell">${row.cumulative.toFixed(2)}</TableCell>
+                                    </TableRow>
                                 ))}
                             </TableBody>
                         </Table>
@@ -111,10 +112,10 @@ export default function RoiPage() {
                     </Card>
                 </div>
             </section>
-            
+
             {/* ROI Benefits */}
             <section className="py-20 md:py-24 bg-card">
-                 <div className="container mx-auto px-4 md:px-6">
+                <div className="container mx-auto px-4 md:px-6">
                     <div className="text-center max-w-3xl mx-auto mb-12">
                         <h2 className="text-3xl font-bold">ROI Benefits</h2>
                         <p className="mt-4 text-muted-foreground">Our system is designed to provide consistent, scalable, and predictable returns.</p>
