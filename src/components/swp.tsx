@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BarChart, Bot, Download, Landmark, LineChart, PauseCircle, PieChart, TrendingUp, UserCheck, Wallet } from "lucide-react";
+import { Bot, Download, Landmark, LineChart, PauseCircle, PieChart, TrendingUp, Wallet } from "lucide-react";
 import SwpChart from "./swp-chart";
 
 const flowSteps = [
@@ -36,42 +36,6 @@ const flowSteps = [
     }
 ]
 
-const benefits = [
-    {
-        icon: <Wallet className="h-6 w-6 text-primary" />,
-        title: "Regular Income",
-        description: "Provides passive income from trading profits."
-    },
-    {
-        icon: <TrendingUp className="h-6 w-6 text-primary" />,
-        title: "Capital Growth",
-        description: "Ensures part of the capital is always reinvested."
-    },
-    {
-        icon: <Landmark className="h-6 w-6 text-primary" />,
-        title: "Liquidity Control",
-        description: "Withdrawals don’t interrupt the trading strategy."
-    },
-    {
-        icon: <BarChart className="h-6 w-6 text-primary" />,
-        title: "Goal-Oriented",
-        description: "Useful for monthly goals (bills, savings, etc.)."
-    },
-    {
-        icon: <Bot className="h-6 w-6 text-primary" />,
-        title: "Automation",
-        description: "Fully automated by AI, minimal user intervention."
-    }
-]
-
-const aiCustomization = [
-    "User risk profile",
-    "Target ROI",
-    "Investment tenure",
-    "Withdrawal frequency",
-    "Referral earnings",
-]
-
 export default function SwpPage() {
     return (
         <div className="bg-background text-foreground">
@@ -94,14 +58,46 @@ export default function SwpPage() {
             {/* What is SWP? */}
             <section className="py-20 md:py-24">
                 <div className="container mx-auto px-4 md:px-6">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-4">
-                            <h2 className="text-3xl font-bold text-primary">What is SWP?</h2>
-                            <p className="text-lg text-muted-foreground">The Systematic Withdrawal Plan (SWP) in the context of your AI Trading Agent refers to a structured method where profits earned through trading are withdrawn periodically in a controlled, rule-based manner—balancing reinvestment, liquidity, and user incentives.</p>
-                            <p className="text-muted-foreground">This approach allows you to enjoy a regular income stream while your core investment continues to grow through the power of our AI-driven strategies.</p>
+                    <div className="grid md:grid-cols-2 gap-16 items-center">
+                        <div className="space-y-10">
+                            <div>
+                                <h2 className="text-3xl font-bold text-primary">What is SWP?</h2>
+                                <p className="mt-4 text-muted-foreground">
+                                    The Systematic Withdrawal Plan (SWP) in the context of our AI Trading Agent is a disciplined financial mechanism that enables investors to withdraw a fixed or custom amount of profit at regular intervals—while the remaining capital continues to compound through AI-powered trading strategies.
+                                </p>
+                                <p className="mt-4 text-muted-foreground">
+                                    Unlike traditional investment models, our SWP is smart, adaptive, and optimized for both wealth growth and liquidity. It is built to support your financial journey with predictable returns, customizable reinvestment logic, and low risk exposure—all guided by intelligent automation.
+                                </p>
+                            </div>
+                            
+                            <div>
+                                <h3 className="text-2xl font-bold text-primary flex items-center gap-3">
+                                    <Wallet className="h-6 w-6" />
+                                    <span>Key Benefits</span>
+                                </h3>
+                                <ul className="mt-4 space-y-3 text-muted-foreground">
+                                    <li className="flex items-start gap-3"><TrendingUp className="h-4 w-4 mt-1 text-primary/70 flex-shrink-0" /><span>Regular and predictable passive income stream</span></li>
+                                    <li className="flex items-start gap-3"><TrendingUp className="h-4 w-4 mt-1 text-primary/70 flex-shrink-0" /><span>Capital continues to grow through AI-backed reinvestment</span></li>
+                                    <li className="flex items-start gap-3"><TrendingUp className="h-4 w-4 mt-1 text-primary/70 flex-shrink-0" /><span>Flexibility to set monthly, quarterly, or custom withdrawal cycles</span></li>
+                                    <li className="flex items-start gap-3"><TrendingUp className="h-4 w-4 mt-1 text-primary/70 flex-shrink-0" /><span>Low emotional stress—powered by data, not impulses</span></li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 className="text-2xl font-bold text-primary flex items-center gap-3">
+                                    <Bot className="h-6 w-6" />
+                                    <span>How It Works</span>
+                                </h3>
+                                <ul className="mt-4 space-y-3 text-muted-foreground">
+                                    <li className="flex items-start gap-3"><TrendingUp className="h-4 w-4 mt-1 text-primary/70 flex-shrink-0" /><span>Your profits are calculated based on trading performance</span></li>
+                                    <li className="flex items-start gap-3"><TrendingUp className="h-4 w-4 mt-1 text-primary/70 flex-shrink-0" /><span>A percentage (e.g., 50%) is reinvested automatically</span></li>
+                                    <li className="flex items-start gap-3"><TrendingUp className="h-4 w-4 mt-1 text-primary/70 flex-shrink-0" /><span>The remaining profit is sent to your wallet periodically</span></li>
+                                    <li className="flex items-start gap-3"><TrendingUp className="h-4 w-4 mt-1 text-primary/70 flex-shrink-0" /><span>All decisions follow preset rules, removing human error</span></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div>
-                            <Image src="https://placehold.co/600x400.png" alt="SWP diagram" width={600} height={400} className="rounded-lg shadow-lg" data-ai-hint="flowchart diagram finance" />
+                        <div className="flex items-center justify-center">
+                            <Image src="https://placehold.co/600x800.png" alt="SWP diagram" width={600} height={800} className="rounded-lg shadow-2xl" data-ai-hint="futuristic financial chart" />
                         </div>
                     </div>
                 </div>
@@ -136,49 +132,6 @@ export default function SwpPage() {
                     <Card className="p-4 md:p-6">
                         <SwpChart />
                     </Card>
-                </div>
-            </section>
-
-            {/* Benefits & Customization */}
-            <section className="py-20 md:py-24 bg-card">
-                 <div className="container mx-auto px-4 md:px-6">
-                    <div className="grid lg:grid-cols-5 gap-12">
-                        <div className="lg:col-span-3">
-                            <h2 className="text-3xl font-bold mb-8">Benefits of SWP</h2>
-                            <div className="space-y-6">
-                                {benefits.map((benefit) => (
-                                    <div key={benefit.title} className="flex items-start gap-4">
-                                        <div className="flex-shrink-0">{benefit.icon}</div>
-                                        <div>
-                                            <h4 className="font-semibold">{benefit.title}</h4>
-                                            <p className="text-muted-foreground text-sm">{benefit.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="lg:col-span-2">
-                             <Card className="bg-primary/10 p-6 h-full border-primary">
-                                <CardHeader className="p-0">
-                                    <div className="flex items-center gap-3 mb-4">
-                                        <Bot className="h-8 w-8 text-primary" />
-                                        <CardTitle className="text-2xl">AI Customization</CardTitle>
-                                    </div>
-                                </CardHeader>
-                                <CardContent className="p-0">
-                                    <p className="text-muted-foreground mb-4">The AI Trading Agent can personalize SWP based on:</p>
-                                    <ul className="space-y-3">
-                                        {aiCustomization.map((item) => (
-                                            <li key={item} className="flex items-center gap-3">
-                                                <UserCheck className="h-5 w-5 text-primary flex-shrink-0" />
-                                                <span>{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </CardContent>
-                             </Card>
-                        </div>
-                    </div>
                 </div>
             </section>
         </div>
