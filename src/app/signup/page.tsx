@@ -39,7 +39,7 @@ export default function SignupPage() {
           <CardHeader className="space-y-1 text-center">
             <CardTitle className="text-2xl">Create an Account</CardTitle>
             <CardDescription>Enter your details below to get started</CardDescription>
-          </Header>
+          </CardHeader>
           <CardContent className="grid gap-4">
              <div className="grid gap-2">
               <Label htmlFor="name">Name</Label>

@@ -6,7 +6,7 @@ const Images = {
     business2: 'https://placehold.co/600x400.png',
     business3: 'https://placehold.co/600x400.png',
     business4: 'https://placehold.co/600x400.png',
-    dynamic: 'https://placehold.co/600x400.png',
+    dynamic: 'https://placehold.co/1200x400.png',
     dynamic2: 'https://placehold.co/600x400.png',
 
     airisk: 'https://placehold.co/600x400.png',

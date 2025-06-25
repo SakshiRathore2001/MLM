@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ArrowRight, TrendingUp, Repeat, ShieldCheck, Share2, FileText } from "lucide-react";
+import Images from "@/constants/Images.constants";
 
 const services = [
   {
@@ -30,7 +31,7 @@ const services = [
 const GuidanceCard = () => (
     <Card className="relative rounded-xl overflow-hidden p-8 text-white bg-emerald-800/50 h-full flex flex-col md:flex-row justify-between items-center gap-8">
         <Image
-            src="https://placehold.co/1200x400.png"
+            src={Images.dynamic}
             alt="Expert guidance"
             fill
             className="object-cover opacity-20"
