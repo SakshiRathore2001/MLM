@@ -10,9 +10,15 @@ const axiosInstance = axios.create({
   },
 });
 
-// Optional: Add a request interceptor to include the auth token
+// Interceptor to use relative URLs for Next.js API routes
 axiosInstance.interceptors.request.use(
   (config) => {
+    // If the request is for a Next.js API route, use relative URL
+    if (typeof config.url === 'string' && config.url.startsWith('/api/')) {
+      config.baseURL = '';
+    } else {
+      config.baseURL = API_BASE_URL;
+    }
     // In a real app, you would get the token from your state management or local storage
     const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null;
     if (token) {
